@@ -341,7 +341,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <div class="facts" aria-label="Key facts">
   <div class="wrap">
-    <div class="fact"><strong>~4 bigha</strong><span>Land on SH15 (≈1.3 acre)</span></div>
+    <div class="fact"><strong>~8 bigha</strong><span>Land on SH15 (≈2.6 acre)</span></div>
     <div class="fact"><strong>~3,000 ft²</strong><span>Built-to-suit showroom</span></div>
     <div class="fact"><strong>SH15</strong><span>Direct highway frontage</span></div>
     <div class="fact"><strong>3</strong><span>Phase 1 spaces open now</span></div>
@@ -374,13 +374,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <button type="button" id="todBtn">Switch to dusk</button>
           <button type="button" id="spinBtn" aria-pressed="true">Auto-rotate on</button>
           <button type="button" id="p2Btn" aria-pressed="true">Phase 2 shown</button>
+          <button type="button" id="p3Btn" aria-pressed="true">Phase 3 shown</button>
           <button type="button" id="lblBtn" aria-pressed="true">Labels on</button>
         </div>
       </div>
       <div class="info3d" id="info3d" aria-live="polite">
         <div class="pp-k" id="i3k">TAP A BUILDING</div>
         <h3 id="i3t">Nagarayan Estate</h3>
-        <p id="i3d">About 4 bigha on State Highway 15 at Srikol, Shyampur. Tap the showroom, restaurant, tea stall or Phase 2 block.</p>
+        <p id="i3d">About 8 bigha on State Highway 15 at Srikol, Shyampur. Tap the showroom, restaurant, tea stall, the Phase 2 block or the Phase 3 land.</p>
         <a class="btn solid" id="i3btn" href="#enquire" hidden>Enquire about this space</a>
       </div>
       <div class="loadnote" id="loadNote">Loading real trees, shrubs and sky…</div>
@@ -498,7 +499,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
     <div class="plan-layout">
     <div class="plan-box">
-      <svg viewBox="0 0 760 360" role="img" aria-label="Interactive Phase 1 site plan along State Highway 15. Select a space to see details.">
+      <svg viewBox="0 -120 760 480" role="img" aria-label="Interactive site plan along State Highway 15 with Phase 1, Phase 2 and Phase 3 land. Select a space to see details.">
+        <g class="zone" data-z="phase3" tabindex="0" role="button" aria-label="Phase 3 land">
+          <rect x="20" y="-110" width="720" height="120" fill="#E3EFE6" stroke="#4E8F78" stroke-width="2" stroke-dasharray="6 5" rx="4"/>
+          <text x="380" y="-58" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="700" fill="#2F6E5A" letter-spacing="2">PHASE 3 · ~4 BIGHA</text>
+          <text x="380" y="-34" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#4E8F78" letter-spacing="1">TOTAL ESTATE ~8 BIGHA</text>
+        </g>
         <g class="zone" data-z="phase2" tabindex="0" role="button" aria-label="Phase 2 land">
           <rect x="20" y="20" width="720" height="250" fill="#F6EFE0" stroke="#C9B994" stroke-width="2" stroke-dasharray="6 5" rx="4"/>
           <text x="380" y="58" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#5E6577" letter-spacing="2">PHASE 2 · FUTURE DEVELOPMENT</text>
@@ -588,7 +594,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="ph-tabs" role="tablist" aria-label="Development phases">
         <button role="tab" id="tab-1" aria-selected="true" aria-controls="ph-1" data-p="1">Phase 1<small>Roadside front</small></button>
         <button role="tab" id="tab-2" aria-selected="false" aria-controls="ph-2" data-p="2" tabindex="-1">Phase 2<small>Commercial building</small></button>
-        <button role="tab" id="tab-3" aria-selected="false" aria-controls="ph-3" data-p="3" tabindex="-1">Phase 3<small>Destination</small></button>
+        <button role="tab" id="tab-3" aria-selected="false" aria-controls="ph-3" data-p="3" tabindex="-1">Phase 3<small>~4 more bigha</small></button>
       </div>
       <div class="ph-panel" role="tabpanel" id="ph-1" aria-labelledby="tab-1">
         <h3>Phase 1 · The roadside front</h3>
@@ -604,9 +610,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       </div>
       <div class="ph-panel" role="tabpanel" id="ph-3" aria-labelledby="tab-3" hidden>
         <h3>Phase 3 · A destination on SH15</h3>
-        <p>As the area grows, the estate can expand into a larger hub for shopping, healthcare and stay, serving Shyampur and highway travellers.</p>
+        <p>About 4 more bigha behind the frontage take Nagarayan Estate to about 8 bigha in total. As the area grows, this land becomes a larger hub for shopping, healthcare and stay, serving Shyampur and highway travellers.</p>
         <div class="chips"><span>Shopping</span><span>Healthcare</span><span>Guest house</span><span>Parking &amp; services</span></div>
-        <span class="status later">Long-term vision</span>
+        <span class="status later">Land: ~4 bigha · total estate ~8 bigha</span>
       </div>
     </div>
   </div>
@@ -629,6 +635,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <label><input type="radio" name="space" value="Restaurant / café"><span>Restaurant / café</span></label>
           <label><input type="radio" name="space" value="Tea stall / kiosk"><span>Tea stall / kiosk</span></label>
           <label><input type="radio" name="space" value="Phase 2 space"><span>Phase 2 space</span></label>
+          <label><input type="radio" name="space" value="Phase 3 land"><span>Phase 3 land</span></label>
         </div>
       </fieldset>
       <fieldset>
@@ -853,8 +860,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   var ground = flat(900, 900, tmat(T.grass, {color:0xC9D4AE}), 0, 0, 0);
   var fieldMats = [tmat(T.paddy), tmat(T.gold), tmat(T.paddy, {color:0xDDEECC})];
   function field(x, z, w, d, k){ flat(w, d, fieldMats[k], x, z, 0.03); flat(w+0.5, 0.35, tmat(T.dirt), x, z - d/2 - 0.1, 0.035); flat(0.35, d+0.5, tmat(T.dirt), x - w/2 - 0.1, z, 0.035); }
-  for(var i=0;i<18;i++){ for(var j=0;j<5;j++){ field(-96 + i*11.4, -16 - j*7.6, 10.8, 7, (i*3 + j) % 3 === 1 ? 1 : (i+j)%2 ? 0 : 2); } }
-  for(i=0;i<18;i++){ for(j=0;j<3;j++){ var fx0 = -96 + i*11.4; if(fx0 > -30 && fx0 < 30 && j === 0) continue; field(fx0, 20 + j*7.6, 10.8, 7, (i + j*2) % 3 === 0 ? 1 : 0); } }
+  for(var i=0;i<18;i++){ for(var j=0;j<5;j++){ if(j === 0 && (-96 + i*11.4) > -14 && (-96 + i*11.4) < 18) continue; field(-96 + i*11.4, -16 - j*7.6, 10.8, 7, (i*3 + j) % 3 === 1 ? 1 : (i+j)%2 ? 0 : 2); } }
+  for(i=0;i<18;i++){ for(j=0;j<3;j++){ var fx0 = -96 + i*11.4; if(fx0 > -30 && fx0 < 30 && j === 0) continue; field(fx0, 23.4 + j*7.6, 10.8, 7, (i + j*2) % 3 === 0 ? 1 : 0); } }
   flat(15.6, 13, tmat(T.dirt), 0, 0, 0.05);
   var owned = flat(4.6, 13, tmat(T.grass, {color:0xA8C89A}), 10.1, 0, 0.055); owned.userData.key = 'owned'; pick.push(owned);
   flat(14.6, 2.4, tmat(T.paving), 0, 6.2, 0.06);
@@ -868,17 +875,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   [0.35,0.65].forEach(function(h){ var g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-7.9,h,6.4), new THREE.Vector3(-7.9,h,-6.6), new THREE.Vector3(12.5,h,-6.6), new THREE.Vector3(12.5,h,6.4)]); scene.add(new THREE.Line(g, wireM)); });
 
   /* ---------- highway SH15 ---------- */
-  var road = flat(900, 3.8, tmat(T.asphalt, {roughness:0.92}), 0, 9.5, 0.07);
-  flat(900, 0.9, tmat(T.dirt), 0, 7.15, 0.065); flat(900, 0.9, tmat(T.dirt), 0, 11.85, 0.065);
-  var lineM = mat(0xF2EFE6, {roughness:0.6});
-  for(var dx=-440; dx<440; dx+=4.2){ flat(2, 0.12, lineM, dx, 9.5, 0.075); }
-  flat(900, 0.08, mat(0xE9E4D6), 0, 7.72, 0.075); flat(900, 0.08, mat(0xE9E4D6), 0, 11.28, 0.075);
+  var road = flat(900, 7.2, tmat(T.asphalt, {roughness:0.92}), 0, 11.2, 0.07);
+  flat(900, 0.9, tmat(T.dirt), 0, 7.15, 0.065); flat(900, 0.9, tmat(T.dirt), 0, 15.25, 0.065);
+  var lineM = mat(0xF2EFE6, {roughness:0.6}), yelM = mat(0xE2B53A, {roughness:0.6});
+  for(var dx=-440; dx<440; dx+=4.2){ flat(2, 0.12, lineM, dx, 9.4, 0.075); flat(2, 0.12, lineM, dx, 13.0, 0.075); }
+  flat(900, 0.1, yelM, 0, 11.08, 0.075); flat(900, 0.1, yelM, 0, 11.32, 0.075);
+  flat(900, 0.08, mat(0xE9E4D6), 0, 7.72, 0.075); flat(900, 0.08, mat(0xE9E4D6), 0, 14.68, 0.075);
   flat(2.6, 1.2, tmat(T.paving, {color:0xBBBBBB}), 2.4, 7.4, 0.08);
 
   /* electric poles and wires along the far side */
   var poleM = mat(0xB9B4AA, {roughness:0.7}), poleTops = [];
-  for(var px=-120; px<=120; px+=14){ var pl = box(0.18, 6, 0.18, poleM, px, 3, 12.6); var arm = box(1.4, 0.1, 0.1, poleM, px, 5.7, 12.6); poleTops.push(new THREE.Vector3(px, 5.75, 12.0), new THREE.Vector3(px, 5.75, 13.2)); }
-  [[12.0],[13.2]].forEach(function(zz){
+  for(var px=-120; px<=120; px+=14){ var pl = box(0.18, 6, 0.18, poleM, px, 3, 16.0); var arm = box(1.4, 0.1, 0.1, poleM, px, 5.7, 16.0); poleTops.push(new THREE.Vector3(px, 5.75, 15.4), new THREE.Vector3(px, 5.75, 16.6)); }
+  [[15.4],[16.6]].forEach(function(zz){
     var pts = [];
     for(var px2=-120; px2<120; px2+=14){ for(var s=0; s<=8; s++){ var t = s/8; pts.push(new THREE.Vector3(px2 + 14*t, 5.75 - Math.sin(Math.PI*t)*0.55, zz[0])); } }
     scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({color:0x2B2B2B})));
@@ -945,6 +953,27 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   for(var fl=1; fl<4; fl++){ var ln = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(9,4.5)), new THREE.LineBasicMaterial({color:0xC9A24A, transparent:true, opacity:0.55})); ln.rotation.x = -Math.PI/2; ln.position.y = -3.5 + fl*1.75; p2.add(ln); }
   p2.position.set(-2, 3.5, -3); scene.add(p2);
 
+  /* Phase 3 land: ~4 more bigha behind the estate (total ~8 bigha) */
+  var p3 = new THREE.Group(); scene.add(p3);
+  var p3land = new THREE.Mesh(new THREE.PlaneGeometry(20.4, 13), tmat(T.grass, {color:0x8FD1B8})); p3land.rotation.x = -Math.PI/2; p3land.position.set(2.3, 0.05, -14.1); p3land.receiveShadow = true;
+  p3land.userData.key = 'phase3'; pick.push(p3land); p3.add(p3land);
+  var p3edge = mat(0x2F8F73, {roughness:0.6});
+  [[20.8,0.45,2.3,-7.6],[20.8,0.45,2.3,-20.6],[0.45,13,-7.9,-14.1],[0.45,13,12.5,-14.1]].forEach(function(e){
+    for(var k=0; k<1; k++){ var m = new THREE.Mesh(new THREE.PlaneGeometry(e[0], e[1]), p3edge); m.rotation.x = -Math.PI/2; m.position.set(e[2], 0.07, e[3]); p3.add(m); } });
+  [[-7.9,-7.6],[12.5,-7.6],[-7.9,-20.6],[12.5,-20.6],[2.3,-20.6],[2.3,-7.6],[-7.9,-14.1],[12.5,-14.1]].forEach(function(c){
+    var peg = new THREE.Mesh(new THREE.BoxGeometry(0.22, 1.1, 0.22), p3edge); peg.position.set(c[0], 0.55, c[1]); peg.castShadow = true; p3.add(peg);
+    var cap = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.12, 0.3), mat(0xC9A24A, {metalness:0.6, roughness:0.35})); cap.position.set(c[0], 1.14, c[1]); p3.add(cap); });
+  function p3ghost(w, h, d, x, z){
+    var gm = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), new THREE.MeshPhysicalMaterial({color:0xA9DCCB, transparent:true, opacity:0.32, roughness:0.1, metalness:0.1, depthWrite:false}));
+    gm.position.set(x, h/2, z); gm.userData.key = 'phase3'; pick.push(gm); p3.add(gm);
+    var ed = new THREE.LineSegments(new THREE.EdgesGeometry(gm.geometry), new THREE.LineBasicMaterial({color:0x2F8F73})); ed.position.copy(gm.position); p3.add(ed);
+  }
+  p3ghost(9, 4.2, 5, -2.2, -15.2);   // shopping and healthcare block
+  p3ghost(5.2, 5.6, 4.2, 8.4, -16.4); // guest house
+  var bay = mat(0xF2EFE6, {roughness:0.7});
+  for(var pb=0; pb<9; pb++){ var st = new THREE.Mesh(new THREE.PlaneGeometry(0.08, 1.8), bay); st.rotation.x = -Math.PI/2; st.position.set(-6.6 + pb*2.2, 0.075, -9.4); p3.add(st); }
+  var p3pave = new THREE.Mesh(new THREE.PlaneGeometry(18.6, 2.6), tmat(T.paving, {color:0xC8C3B8})); p3pave.rotation.x = -Math.PI/2; p3pave.position.set(2.3, 0.06, -9.4); p3pave.receiveShadow = true; p3.add(p3pave);
+
   /* brand board */
   function logoTex(){
     var c = cnv(512,300), g = c.getContext('2d'); g.fillStyle = '#0D1628'; g.fillRect(0,0,512,300);
@@ -984,20 +1013,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     [-1,1].forEach(function(s){ var win = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5), mat(0x2E3B4A, {roughness:0.3, metalness:0.2})); win.position.set(s*w*0.3, h*0.6, d/2+0.01); g.add(win); });
     g.position.set(x, 0, z); g.rotation.y = rot; scene.add(g); return g;
   }
-  var housesSpots = [[-22,15.5,Math.PI],[-28,16,Math.PI],[-35,15.8,Math.PI],[25,16,Math.PI],[31,15.6,Math.PI],[38,16.2,Math.PI],[44,15.7,Math.PI],[-46,15.8,Math.PI],
+  var housesSpots = [[-22,18.9,Math.PI],[-28,19.4,Math.PI],[-35,19.2,Math.PI],[25,19.4,Math.PI],[31,19.0,Math.PI],[38,19.6,Math.PI],[44,19.1,Math.PI],[-46,19.2,Math.PI],
     [-20,-1,0.2],[-26,-4,0.1],[-31,1,-0.3],[22,-2,-0.2],[29,1,0.25],[34,-3,0],[40,0.5,-0.1],[-40,-3,0.3],[48,-2,0.1],[-50,1,-0.2]];
   housesSpots.forEach(function(p,k){ house(p[0], p[1], p[2], k%3 === 0 ? 'flat' : k%3 === 1 ? 'tiles' : (k%2 ? 'thatch' : 'tiles')); });
   /* roadside shop row across the highway */
-  for(var sh=0; sh<5; sh++){ house(52 + sh*3.4, 15.6, Math.PI, 'flat'); house(-62 - sh*3.4, 15.6, Math.PI, sh%2 ? 'tiles' : 'flat'); }
+  for(var sh=0; sh<5; sh++){ house(52 + sh*3.4, 19.0, Math.PI, 'flat'); house(-62 - sh*3.4, 19.0, Math.PI, sh%2 ? 'tiles' : 'flat'); }
 
   /* ---------- trees (instanced for performance) ---------- */
   var barkM = tmat(T.bark), frondM = new THREE.MeshStandardMaterial({map:T.frond, alphaTest:0.4, side:THREE.DoubleSide, roughness:0.8});
   var leafM = new THREE.MeshStandardMaterial({map:T.leaf, alphaTest:0.45, side:THREE.DoubleSide, roughness:0.85});
   var tuftM = new THREE.MeshStandardMaterial({map:T.tuft, alphaTest:0.4, side:THREE.DoubleSide, roughness:1});
-  function blocked(x,z){ var r = Math.sqrt(x*x + z*z); if(r > 19 && r < 40 && z > -20) return true; if(Math.abs(x+16) < 16 && z < -46) return true; return (x > -12.5 && x < 14 && z > -8 && z < 13.6) || (z > 6.6 && z < 13.8) || (z > -62 && z < -58) || z < -61; }
+  function blocked(x,z){ var r = Math.sqrt(x*x + z*z); if(r > 19 && r < 40 && z > -20) return true; if(Math.abs(x+16) < 16 && z < -46) return true; return (x > -12.5 && x < 14 && z > -22 && z < 13.6) || (z > 6.6 && z < 17.2) || (z > -62 && z < -58) || z < -61; }
   var palmSpots = [], roundSpots = [], bambooSpots = [];
-  for(i=0;i<260;i++){ var tx = range(-130, 130), tz = range(-57, 48); if(blocked(tx,tz)) continue; if(Math.abs(tx) < 60 && Math.abs(tz - 15.8) < 2.2) continue; var r = rnd(); if(r < 0.5) palmSpots.push([tx,tz]); else if(r < 0.9 || Math.sqrt(tx*tx+tz*tz) < 50) roundSpots.push([tx,tz]); else bambooSpots.push([tx,tz]); }
-  [[-9,-8.4],[-4,-8.6],[1,-8.8],[6,-8.4],[11,-8.6],[14.4,-3],[14.2,3],[-11.4,-2],[-11.8,3.5],[24,-14],[20,-6],[28,-8],[18,-12]].forEach(function(p,k){ (k%2 ? roundSpots : palmSpots).push(p); });
+  for(i=0;i<260;i++){ var tx = range(-130, 130), tz = range(-57, 48); if(blocked(tx,tz)) continue; if(Math.abs(tx) < 60 && Math.abs(tz - 19.2) < 2.2) continue; var r = rnd(); if(r < 0.5) palmSpots.push([tx,tz]); else if(r < 0.9 || Math.sqrt(tx*tx+tz*tz) < 50) roundSpots.push([tx,tz]); else bambooSpots.push([tx,tz]); }
+  [[-9,-21.6],[-4,-21.8],[1,-22],[6,-21.6],[11,-21.8],[14.4,-3],[14.2,3],[-11.4,-2],[-11.8,3.5],[24,-14],[20,-6],[28,-8],[18,-12]].forEach(function(p,k){ (k%2 ? roundSpots : palmSpots).push(p); });
   for(i=0;i<46;i++){ var rx = -140 + i*6.2 + range(-1,1); if(rx > -34 && rx < 2) continue; palmSpots.push([rx, -59 + range(-1.2,0.8)]); }
 
   /* palm trunks: curved tubes */
@@ -1054,7 +1083,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   var tuftN = small ? 900 : 1600, tuftIM = new THREE.InstancedMesh(tuftGeo, tuftM, tuftN), ti = 0;
   while(ti < tuftN){
     var gx = range(-70, 70), gz = range(-14, 30);
-    if((gx > -8 && gx < 12.6 && gz > -6.7 && gz < 6.5) || (gz > 7.6 && gz < 11.4)) continue;
+    if((gx > -8 && gx < 12.6 && gz > -20.8 && gz < 6.5) || (gz > 7.6 && gz < 15.8)) continue;
     dummy.position.set(gx, 0, gz); dummy.rotation.set(0, rnd()*3.14, 0); dummy.scale.setScalar(range(0.5, 1.0)); dummy.updateMatrix(); tuftIM.setMatrixAt(ti++, dummy.matrix);
   }
   scene.add(tuftIM);
@@ -1105,7 +1134,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     /* main trees: two photo-scanned species */
     var treeLists = [[], []];
     nearRound.forEach(function(p, k){ treeLists[k % 2].push(p); });
-    [[-15,-9.5],[3,-9.6],[13.6,-9.2],[15.6,1.5],[-13.5,0.8],[-17,8.8],[17.5,6.8]].forEach(function(p,k){ treeLists[k % 2].push(p); });
+    [[-15,-9.5],[3,-22.2],[13.6,-9.2],[15.6,1.5],[-13.5,0.8],[-17,5.8],[17.5,6.6]].forEach(function(p,k){ treeLists[k % 2].push(p); });
     ['assets/tree_a.glb','assets/tree_b.glb'].forEach(function(url, ti){
       loadGLB(gl, url, function(g){
         var v = variantsOf(g.scene, false)[0], target = ti === 0 ? 3.6 : 3.1;
@@ -1124,7 +1153,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     var shrubSpots = [];
     for(var x=-7.4; x<12.2; x+=1.3){ shrubSpots.push([x + range(-0.3,0.3), -7.3 + range(-0.3,0.3)]); }
     for(var z=-6.2; z<5.6; z+=1.4){ shrubSpots.push([-8.6 + range(-0.3,0.3), z]); shrubSpots.push([13.2 + range(-0.3,0.3), z]); }
-    for(var i=0;i<90;i++){ var sx = range(-60, 60), sz = range(-14, 30); if((sx > -9 && sx < 13.6 && sz > -7.6 && sz < 6.8) || (sz > 6.6 && sz < 12.4)) continue; shrubSpots.push([sx, sz]); }
+    for(var i=0;i<90;i++){ var sx = range(-60, 60), sz = range(-14, 30); if((sx > -9 && sx < 13.6 && sz > -21.6 && sz < 6.8) || (sz > 6.6 && sz < 16.0)) continue; shrubSpots.push([sx, sz]); }
     ['assets/shrub_a.glb','assets/shrub_b.glb'].forEach(function(url, si){
       loadGLB(gl, url, function(g){
         var vs = variantsOf(g.scene, true), lists = vs.map(function(){ return []; });
@@ -1217,7 +1246,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   [0xE8E8E8, 0x8A1F1F].forEach(function(cl,k){ var v = vehicle(cl, -4.8 + k*3.2, 3.6, 0, false, 'car'); v.rotation.y = 0.5; });
   var tc = [0xB23A3A,0xF2F2F0,0x2D5DA8,0xE0B43A,0x2E2E2E,0x6E8B74,0xE07A2E,0xC0C4C8];
   for(i=0;i<14;i++){ var dir = i%2 ? 1 : -1, kind = i%7 === 3 ? 'bus' : i%5 === 4 ? 'truck' : 'car';
-    vehicle(kind === 'bus' ? 0x2F6E4F : kind === 'truck' ? 0xC9762E : tc[i%tc.length], -160 + i*23, dir > 0 ? 8.6 : 10.4, dir*(kind === 'car' ? range(10,15) : 7), true, kind); }
+    vehicle(kind === 'bus' ? 0x2F6E4F : kind === 'truck' ? 0xC9762E : tc[i%tc.length], -160 + i*23, dir > 0 ? (i%4 === 1 ? 8.5 : 10.2) : (i%4 === 0 ? 12.2 : 13.9), dir*(kind === 'car' ? range(10,15) : 7), true, kind); }
 
   /* ---------- labels ---------- */
   function label(text, x, y, z, w){
@@ -1227,8 +1256,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding;
     var s = new THREE.Sprite(new THREE.SpriteMaterial({map:t, depthTest:false, transparent:true, fog:false, toneMapped:false})); s.scale.set(w||4, (w||4)/4, 1); s.position.set(x,y,z); s.renderOrder = 10; scene.add(s); return s;
   }
-  var labels = [label('Car showroom', -3, 5.6, 3.4), label('Restaurant', 5.2, 4.2, 3.8, 3.4), label('Tea stall', 7.6, 2.7, 5.4, 2.8), label('Your 1 bigha', 10.1, 1.5, 0, 3.2), label('State Highway 15', -20, 1.4, 9.5, 5), label('River', -30, 3, -78, 3)];
+  var labels = [label('Car showroom', -3, 5.6, 3.4), label('Restaurant', 5.2, 4.2, 3.8, 3.4), label('Tea stall', 7.6, 2.7, 5.4, 2.8), label('Your 1 bigha', 10.1, 1.5, 0, 3.2), label('State Highway 15', -20, 1.4, 11.2, 5), label('River', -30, 3, -78, 3)];
   var p2label = label('Phase 2 (planned)', -2, 7.8, -3, 4.6); labels.push(p2label);
+  var p3label = label('Phase 3 · ~4 bigha', 2.3, 7.2, -14.1, 7); labels.push(p3label);
+  var totLabel = label('Total estate ~8 bigha', 2.3, 10.4, -7, 6.5); labels.push(totLabel);
   var labelsOn = true;
 
   /* ---------- picking and info ---------- */
@@ -1238,11 +1269,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     tea:{k:'PHASE 1 · KIOSK', t:'Tea stall', d:'A thatched kiosk at the road front for tea, snacks and quick stops.', s:'Tea stall / kiosk'},
     phase2:{k:'PHASE 2 · PLANNED', t:'Commercial building', d:'A multi-storey block behind the frontage for retail, a bank, pharmacy, clinics and a banquet hall above.', s:'Phase 2 space'},
     owned:{k:'ADJOINING LAND', t:'Your next 1 bigha', d:'Land next to the estate held by Nagarayan for parking, access and future expansion.', s:null},
-    brand:{k:'NAGARAYAN DEVELOPERS', t:'Nagarayan Estate', d:'About 4 bigha on State Highway 15 at Srikol, Shyampur, Howrah, developed in phases.', s:null}
+    brand:{k:'NAGARAYAN DEVELOPERS', t:'Nagarayan Estate', d:'About 8 bigha on State Highway 15 at Srikol, Shyampur, Howrah, developed in three phases.', s:null},
+    phase3:{k:'PHASE 3 · ~4 BIGHA', t:'Phase 3 land', d:'About 4 more bigha behind the frontage, taking Nagarayan Estate to about 8 bigha in total. Planned for shopping, healthcare, a guest house, parking and services.', s:'Phase 3 land'}
   };
   var ray = new THREE.Raycaster(), ptr = new THREE.Vector2(), hoverKey = null, down = null;
   function setPtr(e){ var r = canvas.getBoundingClientRect(); ptr.x = ((e.clientX - r.left)/r.width)*2 - 1; ptr.y = -((e.clientY - r.top)/r.height)*2 + 1; }
-  function hit(){ ray.setFromCamera(ptr, camera); var hs = ray.intersectObjects(pick.filter(function(m){ return m !== p2mesh || p2.visible; }), false); return hs.length ? hs[0].object.userData.key : null; }
+  function hit(){ ray.setFromCamera(ptr, camera); var hs = ray.intersectObjects(pick.filter(function(m){ return (m !== p2mesh || p2.visible) && (m.userData.key !== 'phase3' || p3.visible); }), false); return hs.length ? hs[0].object.userData.key : null; }
   var glowMats = {};
   pick.forEach(function(m){ var k = m.userData.key; if(m.material && m.material.emissive && m.material !== glass){ (glowMats[k] = glowMats[k] || []).indexOf(m.material) < 0 && glowMats[k].push(m.material); } });
   function glow(k, on){ (glowMats[k]||[]).forEach(function(mm){ mm.emissive.setHex(on ? 0x2A1F06 : 0x000000); }); }
@@ -1267,7 +1299,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   });
 
   /* ---------- camera views ---------- */
-  var VIEWS = { road:{p:[17,6.5,27], t:[0,1.4,1]}, bird:{p:[4,60,30], t:[0,0,-8]}, river:{p:[-16,4.5,-66], t:[0,3,0]}, street:{p:[22,1.7,10.4], t:[0,1.6,6]} };
+  var VIEWS = { road:{p:[17,6.5,27], t:[0,1.4,1]}, bird:{p:[4,66,34], t:[2,0,-8]}, river:{p:[-16,4.5,-66], t:[0,3,0]}, street:{p:[22,1.7,10.4], t:[0,1.6,6]} };
   var fly = null;
   function goView(name){
     var v = VIEWS[name]; if(!v) return;
@@ -1284,8 +1316,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
   var p2Btn = document.getElementById('p2Btn');
   p2Btn.addEventListener('click', function(){ p2.visible = !p2.visible; p2label.visible = p2.visible && labelsOn; p2Btn.setAttribute('aria-pressed', p2.visible); p2Btn.textContent = p2.visible ? 'Phase 2 shown' : 'Phase 2 hidden'; });
+  var p3Btn = document.getElementById('p3Btn');
+  if(p3Btn){ p3Btn.addEventListener('click', function(){ p3.visible = !p3.visible; p3label.visible = p3.visible && labelsOn; p3Btn.setAttribute('aria-pressed', p3.visible); p3Btn.textContent = p3.visible ? 'Phase 3 shown' : 'Phase 3 hidden'; }); }
   var lblBtn = document.getElementById('lblBtn');
-  if(lblBtn){ lblBtn.addEventListener('click', function(){ labelsOn = !labelsOn; labels.forEach(function(l){ l.visible = labelsOn && (l !== p2label || p2.visible); }); lblBtn.setAttribute('aria-pressed', labelsOn); lblBtn.textContent = labelsOn ? 'Labels on' : 'Labels off'; }); }
+  if(lblBtn){ lblBtn.addEventListener('click', function(){ labelsOn = !labelsOn; labels.forEach(function(l){ l.visible = labelsOn && (l !== p2label || p2.visible) && (l !== p3label || p3.visible); }); lblBtn.setAttribute('aria-pressed', labelsOn); lblBtn.textContent = labelsOn ? 'Labels on' : 'Labels off'; }); }
 
   /* ---------- time of day ---------- */
   var mode = 'day', todBtn = document.getElementById('todBtn');
@@ -1356,6 +1390,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     restaurant:{k:'PHASE 1 · FOOD',t:'Restaurant & café',d:'A sit-down restaurant facing SH15, drawing showroom visitors and highway travellers.',l:[['Size','~1,200–1,500 sq ft'],['Frontage','30 ft on SH15'],['Lease','Flexible'],['Suits','Family restaurant, dhaba, café']],s:'Restaurant / café'},
     tea:{k:'PHASE 1 · KIOSK',t:'Tea stall',d:'A small roadside kiosk at the front of the site for tea, snacks and quick stops.',l:[['Size','Kiosk'],['Position','Road front'],['Lease','Short or long']],s:'Tea stall / kiosk'},
     drive:{k:'ACCESS',t:'Entry & driveway',d:'A shared entry from SH15 serving the showroom, restaurant and the land behind.',l:[['Use','Vehicle and visitor access'],['Serves','All Phase 1 spaces']],s:null},
+    phase3:{k:'PHASE 3 · ~4 BIGHA',t:'Phase 3 land',d:'About 4 more bigha behind Phase 2, taking the estate to about 8 bigha in total.',l:[['Land','~4 bigha (≈57,600 sq ft)'],['Total estate','~8 bigha (≈2.6 acre)'],['Ideas','Shopping, healthcare, guest house, parking'],['Status','Long-term · enquiries welcome']],s:'Phase 3 land'},
     phase2:{k:'PHASE 2 · PLANNED',t:'Future development',d:'Land behind the frontage reserved for a larger commercial building.',l:[['Ideas','Retail, bank, pharmacy, clinics'],['Upper floor','Banquet hall'],['Status','Early enquiries welcome']],s:'Phase 2 space'}
   };
   var zones = document.querySelectorAll('.zone');
