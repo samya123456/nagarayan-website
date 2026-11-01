@@ -27,13 +27,13 @@ Hosted on S3 + CloudFront at nagarayan.com and deployed by GitHub Actions on eve
    (Alternative: create a Route 53 hosted zone and change Namecheap's nameservers to the four Route 53 ones; then use Route 53 alias A records instead.)
 5. **IAM user** `nagarayan-deploy` with `infra/iam-deploy-policy.json`; create an access key.
 
-## GitHub secrets (Settings → Secrets and variables → Actions)
-| Secret | Value |
-|---|---|
-| `AWS_ACCESS_KEY_ID` | deploy user's key id |
-| `AWS_SECRET_ACCESS_KEY` | deploy user's secret |
-| `S3_BUCKET` | `nagarayan.com` |
-| `CLOUDFRONT_DISTRIBUTION_ID` | e.g. `E123ABC...` |
+## Deploy authentication (no access keys)
+The workflow signs in to AWS with GitHub OIDC and assumes the IAM role
+`arn:aws:iam::727710162649:role/nagarayan-github-deploy`.
+- Trust policy: `infra/github-oidc-trust-policy.json` (only this repo can assume it)
+- Permissions: `infra/iam-deploy-policy.json` (write to the `nagarayan.com` bucket, invalidate distribution `E37IQQJ32H6YDU`)
+
+GitHub secrets used: `S3_BUCKET` and `CLOUDFRONT_DISTRIBUTION_ID`. The old `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` secrets are no longer needed.
 
 Push to `main` (or run the workflow manually) to deploy.
 
