@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nagarayan Developers</title>
+<meta name="description" content="Nagarayan Developers builds commercial spaces on State Highway 15 at Srikol, Shyampur, Howrah. Showroom, restaurant and kiosk spaces available.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Brand world: deep navy + gold, earth brown and cream from the logo. Layout: navy hero, cream body, the hut→house→tower story as the spine. */
+  --navy:#0D1628;
+  --navy-2:#16223A;
+  --gold:#C9A24A;
+  --gold-deep:#9C7A2E;
+  --earth:#8A6A44;
+  --cream:#F6EFE0;
+  --paper:#FBF7EE;
+  --ink:#1B2233;
+  --muted:#5E6577;
+  --line:#E4DACA;
+  --display:'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --caps:'Cinzel', 'Times New Roman', serif;
+  --body:'Manrope', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit}
+img,svg{max-width:100%}
+h1,h2,h3{text-wrap:balance;margin:0}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* Header */
+.top{background:var(--navy);color:var(--cream)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:46px;height:auto;flex:none}
+.brand b{display:block;font-family:var(--display);font-weight:600;font-size:24px;letter-spacing:.12em;line-height:1}
+.brand small{display:block;font-family:var(--caps);font-size:10px;letter-spacing:.42em;color:var(--gold);margin-top:5px}
+.nav ul{list-style:none;display:flex;gap:26px;margin:0;padding:0;font-size:14px;font-weight:600;letter-spacing:.04em}
+.nav ul a{text-decoration:none;opacity:.85}
+.nav ul a:hover{opacity:1;color:var(--gold)}
+.call{background:var(--gold);color:var(--navy);text-decoration:none;font-weight:700;font-size:14px;padding:10px 16px;border-radius:6px;white-space:nowrap}
+.call:hover{background:#d8b45e}
+
+/* Hero */
+.hero{padding:56px 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.eyebrow{font-family:var(--caps);font-size:12px;letter-spacing:.32em;color:var(--gold)}
+.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(44px,7vw,84px);line-height:1;letter-spacing:-.005em;margin:18px 0 22px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p.lede{max-width:34em;color:#C9CEDA;font-size:18px;margin:0 0 30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:56px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none}
+.btn.solid{background:var(--gold);color:var(--navy)}
+.btn.solid:hover{background:#d8b45e}
+.btn.ghost{border:1px solid rgba(246,239,224,.35);color:var(--cream)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+.skyline{display:block;width:100%;height:auto}
+.skyline .b{transform-box:fill-box;transform-origin:bottom}
+@media (prefers-reduced-motion:no-preference){
+  .skyline .b{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+  .skyline .b2{animation-delay:.25s}
+  .skyline .b3{animation-delay:.5s}
+  @keyframes rise{from{transform:scaleY(.15);opacity:.2}to{transform:scaleY(1);opacity:1}}
+}
+.ground{height:14px;background:var(--gold)}
+
+/* Facts strip */
+.facts{background:var(--navy-2);color:var(--cream)}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.fact{padding:26px 22px;border-left:1px solid rgba(246,239,224,.12)}
+.fact:first-child{border-left:0}
+.fact strong{display:block;font-family:var(--display);font-weight:600;font-size:34px;line-height:1.1;color:var(--gold);font-variant-numeric:tabular-nums}
+.fact span{font-size:14px;color:#BAC0CE}
+
+/* Sections */
+section{padding:84px 0}
+.sec-head{display:grid;grid-template-columns:240px 1fr;gap:32px;margin-bottom:40px}
+.sec-head .eyebrow{color:var(--gold-deep);padding-top:12px}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(32px,4.4vw,48px);line-height:1.08}
+.sec-head p{color:var(--muted);max-width:36em;margin:14px 0 0}
+
+/* Story: hut → house → tower */
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px}
+.step svg{height:70px;width:auto;margin-bottom:16px}
+.step h3{font-family:var(--display);font-weight:600;font-size:26px;margin-bottom:6px}
+.step p{margin:0;color:var(--muted);font-size:15.5px}
+.step .tag{font-family:var(--caps);font-size:11px;letter-spacing:.24em;color:var(--gold-deep);display:block;margin-bottom:8px}
+
+/* Spaces */
+.spaces{background:var(--cream)}
+.space-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.space{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.space.lead{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+.space .size{font-family:var(--caps);font-size:12px;letter-spacing:.2em;color:var(--gold-deep)}
+.space.lead .size{color:var(--gold)}
+.space h3{font-family:var(--display);font-weight:600;font-size:30px;line-height:1.1}
+.space ul{margin:0;padding-left:18px;font-size:15.5px}
+.space.lead ul{color:#D3D8E3}
+.space li{margin:4px 0}
+.status{margin-top:auto;font-size:13px;font-weight:700;letter-spacing:.04em;display:inline-flex;align-items:center;gap:8px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:#3E9B6A}
+.status.later::before{background:var(--gold)}
+
+/* Site plan */
+.plan-box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;overflow-x:auto}
+.plan-box svg{display:block;min-width:620px;width:100%;height:auto}
+.plan-note{font-size:13px;color:var(--muted);margin-top:12px}
+
+/* Location */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+.loc-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:28px}
+.route{list-style:none;margin:8px 0 0;padding:0;position:relative}
+.route li{padding:10px 0 10px 28px;position:relative;border-left:2px solid var(--line);margin-left:6px}
+.route li::before{content:"";position:absolute;left:-7px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--earth)}
+.route li.here::before{background:var(--gold);border-color:var(--gold-deep)}
+.route li.here{font-weight:700}
+.route small{display:block;color:var(--muted);font-weight:500}
+.why{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.why li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.why .n{font-family:var(--display);font-weight:600;font-size:26px;color:var(--gold-deep);line-height:1}
+
+/* Contact */
+.contact{background:var(--navy);color:var(--cream)}
+.contact .sec-head p{color:#BAC0CE}
+.contact .sec-head .eyebrow{color:var(--gold)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.c-card .v.v-sm{font-size:19px;word-break:normal;overflow-wrap:anywhere}
+.c-card{border:1px solid rgba(246,239,224,.18);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:8px;text-decoration:none}
+a.c-card:hover{border-color:var(--gold)}
+.c-card .k{font-family:var(--caps);font-size:11px;letter-spacing:.26em;color:var(--gold)}
+.c-card .v{font-family:var(--display);font-size:26px;font-weight:600;line-height:1.2;word-break:break-word}
+.c-card .h{font-size:14px;color:#BAC0CE}
+
+/* Evolution animation */
+.evo-wrap{margin:0 0 22px}
+.evo{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+.evo .rise{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);opacity:0;transition:transform .9s cubic-bezier(.2,.9,.25,1.15),opacity .35s}
+.evo.s1 .r1,.evo.s2 .r2,.evo.s3 .r3{transform:scaleY(1);opacity:1}
+.evo .arc{stroke-dashoffset:100;opacity:0;transition:stroke-dashoffset 1s ease,opacity .3s}
+.evo.s2 .a1,.evo.s3 .a2{stroke-dashoffset:0;opacity:1}
+.evo .win{fill:#F6EFE0;transition:fill .3s}
+.evo.s4 .win{fill:#F6C25A;filter:url(#evoGlow)}
+.evo.s4 .win:nth-child(2){transition-delay:.12s}.evo.s4 .win:nth-child(3){transition-delay:.24s}.evo.s4 .win:nth-child(4){transition-delay:.36s}.evo.s4 .win:nth-child(5){transition-delay:.48s}.evo.s4 .win:nth-child(6){transition-delay:.6s}
+.evo .sun{opacity:0;transform:translateY(30px);transition:opacity .9s,transform 1.4s ease}
+.evo.s3 .sun{opacity:1;transform:none}
+.evo .brandtxt{opacity:0;transform:translateY(8px);transition:opacity .8s,transform .8s}
+.evo.s4 .brandtxt{opacity:1;transform:none}
+.evo .groundline{transform-origin:400px 285px;transform:scaleX(.05);transition:transform .8s ease}
+.evo.s1 .groundline{transform:scaleX(1)}
+.evo .lab{fill:#A9A397;transition:fill .3s}
+.evo.c1 .l1,.evo.c2 .l2,.evo.c3 .l3,.evo.c4 .lab{fill:#9C7A2E}
+.evo-ctl{display:flex;align-items:center;gap:14px;margin-top:10px;font-size:14px;color:var(--muted)}
+.evo-ctl .btn{padding:8px 14px;font-size:13px}
+.step{transition:border-color .3s,box-shadow .3s,transform .3s}
+.step.active{border-color:var(--gold);box-shadow:0 10px 30px -18px rgba(156,122,46,.7);transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){.evo *{transition:none!important}}
+
+/* Interactive plan */
+.plan-layout{display:grid;grid-template-columns:1fr 300px;gap:20px;align-items:stretch}
+.zone{cursor:pointer;transition:opacity .2s}
+.zone rect{transition:stroke .2s,stroke-width .2s}
+.zone:hover rect,.zone:focus-visible rect{stroke:#C9A24A;stroke-width:4}
+.zone.on rect{stroke:#C9A24A;stroke-width:5;stroke-dasharray:none}
+.zone:focus{outline:none}
+.plan-panel{background:var(--navy);color:var(--cream);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.pp-k{font-family:var(--caps);font-size:11px;letter-spacing:.26em;color:var(--gold)}
+.plan-panel h3{font-family:var(--display);font-weight:600;font-size:30px;line-height:1.1}
+.plan-panel p{margin:0;color:#C9CEDA;font-size:15px}
+.plan-panel dl{margin:4px 0 8px;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px}
+.plan-panel dt{color:#8F97A8}
+.plan-panel dd{margin:0;font-weight:600}
+.plan-panel .btn{margin-top:auto;justify-content:center;border:0;cursor:pointer;font-family:var(--body)}
+@media (prefers-reduced-motion:no-preference){
+  .car{animation:drive 7s linear infinite}
+  @keyframes drive{from{transform:translateX(0)}to{transform:translateX(840px)}}
+}
+
+/* Phases */
+.phases{display:grid;grid-template-columns:260px 1fr;gap:20px}
+.ph-tabs{display:flex;flex-direction:column;gap:8px}
+.ph-tabs button{font:inherit;text-align:left;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px;cursor:pointer;font-family:var(--display);font-size:24px;font-weight:600;color:var(--ink)}
+.ph-tabs button small{display:block;font-family:var(--body);font-size:13px;font-weight:500;color:var(--muted)}
+.ph-tabs button[aria-selected="true"]{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+.ph-tabs button[aria-selected="true"] small{color:var(--gold)}
+.ph-panel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:30px;display:flex;flex-direction:column;gap:14px}
+.ph-panel[hidden]{display:none}
+.ph-panel h3{font-family:var(--display);font-weight:600;font-size:32px}
+.ph-panel p{margin:0;color:var(--muted);max-width:40em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
+
+/* Enquiry */
+.enq{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:28px;display:grid;gap:22px}
+.enq fieldset{border:0;margin:0;padding:0}
+.enq legend,.field label{font-weight:700;font-size:14px;margin-bottom:10px;display:block}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:14px;font-weight:600}
+.seg input:checked+span{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+.seg input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field input[type=text],.field select{width:100%;font:inherit;font-size:15px;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.field input[type=range]{width:100%;accent-color:var(--gold-deep)}
+.field output{color:var(--gold-deep)}
+.preview{background:#fff;border:1px dashed #C9B994;border-radius:10px;padding:16px 18px}
+.preview .pp-k{color:var(--gold-deep)}
+.preview p{margin:8px 0 0;white-space:pre-line;font-size:15px}
+.btn.line{background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;font-family:var(--body)}
+.btn.line:hover{border-color:var(--gold-deep)}
+.copied{align-self:center;font-size:14px;font-weight:600;color:#2E7D55}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:860px;margin-left:auto}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:0 22px}
+.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:700;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--display);font-size:26px;line-height:.8;color:var(--gold-deep)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:0 0 18px;color:var(--muted)}
+
+/* Floating WhatsApp */
+.fab{position:fixed;right:18px;bottom:18px;z-index:20;display:flex;align-items:center;gap:8px;background:#1F8F55;color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(13,22,40,.25)}
+.fab:hover{background:#18784A}
+.fab svg{width:20px;height:20px}
+
+@media (max-width:900px){
+  .plan-layout,.phases,.row2{grid-template-columns:1fr}
+  .ph-tabs{flex-direction:row;overflow-x:auto}
+  .ph-tabs button{flex:1 0 150px;font-size:20px}
+}
+
+/* 3D tour */
+.tour{background:linear-gradient(#FBF7EE,#EEF3EA)}
+.stage{position:relative;border-radius:14px;overflow:hidden;background:#BFD9E6;height:min(700px,80vh);min-height:440px;box-shadow:0 20px 50px -25px rgba(13,22,40,.45)}
+.stage canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
+.stage canvas:active{cursor:grabbing}
+.hud{position:absolute;top:14px;z-index:2}
+.hud.top-left{left:14px}
+.hud.top-right{right:14px}
+.hud-btns{display:flex;flex-wrap:wrap;gap:6px;background:rgba(13,22,40,.72);backdrop-filter:blur(6px);padding:6px;border-radius:10px}
+.hud-btns button{font:600 13px var(--body);color:var(--cream);background:transparent;border:0;padding:8px 12px;border-radius:7px;cursor:pointer;white-space:nowrap}
+.hud-btns button:hover{background:rgba(246,239,224,.12)}
+.hud-btns button.on,.hud-btns button[aria-pressed="true"]{background:var(--gold);color:var(--navy)}
+.info3d{position:absolute;left:14px;bottom:14px;z-index:2;width:min(340px,calc(100% - 28px));background:rgba(13,22,40,.86);backdrop-filter:blur(8px);color:var(--cream);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.info3d h3{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.1}
+.info3d p{margin:0;color:#C9CEDA;font-size:14.5px}
+.info3d .btn{align-self:flex-start;margin-top:4px;padding:10px 16px;font-size:14px}
+.info3d .btn[hidden]{display:none}
+.nogl{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;background:var(--cream);color:var(--ink);font-weight:600}
+.nogl[hidden]{display:none}
+.loadnote{position:absolute;right:14px;bottom:14px;z-index:2;background:rgba(13,22,40,.78);color:var(--cream);font-size:13px;font-weight:600;padding:8px 12px;border-radius:8px}
+.loadnote[hidden]{display:none}
+@media (max-width:640px){
+  .hud.top-right{top:auto;bottom:auto;right:14px;top:62px}
+  .hud-btns button{font-size:12px;padding:7px 9px}
+  .info3d{padding:14px 16px}
+  .info3d h3{font-size:22px}
+  .info3d p{font-size:13.5px}
+}
+
+footer{background:#080E1B;color:#8F97A8;font-size:13px;padding:26px 0}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .skyline-col{max-width:420px}
+  .facts .wrap{grid-template-columns:repeat(2,1fr)}
+  .fact:nth-child(3){border-left:0}
+  .sec-head{grid-template-columns:1fr;gap:6px}
+  .sec-head .eyebrow{padding-top:0}
+  .story,.space-grid,.contact-grid,.loc{grid-template-columns:1fr}
+  .nav ul{display:none}
+}
+@media (max-width:420px){
+  .brand b{font-size:20px}
+  .call{padding:9px 12px;font-size:13px}
+  .fact{padding:20px 14px}
+  .fact strong{font-size:28px}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Nagarayan Developers home">
+      <svg viewBox="2 68 210 190" aria-hidden="true">
+        <path d="M8 226 C20 196 60 196 72 226 Z M16 224 H64 V250 H16 Z" fill="#8A6A44"/>
+        <path d="M78 176 C96 150 134 150 152 176 L146 180 C130 162 100 162 84 180 Z M84 178 H146 V250 H84 Z M6 250 H208 V254 H6 Z" fill="#C9A24A"/>
+        <path d="M160 96 H204 V250 H160 Z M180 72 H184 V96 H180 Z" fill="#F6EFE0"/>
+        <path d="M34 232 H46 V250 H34 Z M108 220 H122 V250 H108 Z" fill="#0D1628"/>
+        <g fill="#0D1628"><rect x="168" y="114.5" width="28" height="3"/><rect x="168" y="134.5" width="28" height="3"/><rect x="168" y="154.5" width="28" height="3"/><rect x="168" y="174.5" width="28" height="3"/><rect x="168" y="194.5" width="28" height="3"/><rect x="168" y="214.5" width="28" height="3"/></g>
+      </svg>
+      <span><b>NAGARAYAN</b><small>DEVELOPERS</small></span>
+    </a>
+    <ul>
+      <li><a href="#tour">3D tour</a></li>
+      <li><a href="#spaces">Spaces</a></li>
+      <li><a href="#plan">Site plan</a></li>
+      <li><a href="#phases">Roadmap</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#enquire">Enquire</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="call" href="tel:+919007995554">+91 90079 95554</a>
+  </div>
+
+  <div class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">NAGARAYAN ESTATE · STATE HIGHWAY 15</div>
+        <h1>From village roots to a <em>highway landmark.</em></h1>
+        <p class="lede">We are developing commercial spaces on State Highway 15 at Srikol, Shyampur, Howrah. Phase 1 brings a car showroom, a restaurant and a tea stall to the highway that links Bagnan and Gadiara.</p>
+        <div class="btns">
+          <a class="btn solid" href="#tour">Explore in 3D</a>
+          <a class="btn ghost" href="#contact">Book a site visit</a>
+          <a class="btn ghost" href="https://maps.app.goo.gl/iohWDXYEEA7s8aYL7">Open location in Maps</a>
+        </div>
+      </div>
+      <div class="skyline-col">
+        <svg class="skyline" viewBox="0 64 212 190" role="img" aria-label="The Nagarayan mark: a Bengal hut, a chala-roof house and a tower">
+          <g class="b b1"><path d="M8 226 C20 196 60 196 72 226 Z M16 224 H64 V250 H16 Z" fill="#8A6A44"/><path d="M34 232 H46 V250 H34 Z" fill="#0D1628"/></g>
+          <g class="b b2"><path d="M78 176 C96 150 134 150 152 176 L146 180 C130 162 100 162 84 180 Z M84 178 H146 V250 H84 Z" fill="#C9A24A"/><path d="M108 220 H122 V250 H108 Z" fill="#0D1628"/></g>
+          <g class="b b3"><path d="M160 96 H204 V250 H160 Z M180 70 H184 V96 H180 Z" fill="#F6EFE0"/><g fill="#0D1628"><rect x="168" y="114.5" width="28" height="3"/><rect x="168" y="134.5" width="28" height="3"/><rect x="168" y="154.5" width="28" height="3"/><rect x="168" y="174.5" width="28" height="3"/><rect x="168" y="194.5" width="28" height="3"/><rect x="168" y="214.5" width="28" height="3"/></g></g>
+        </svg>
+      </div>
+    </div>
+    <div class="ground"></div>
+  </div>
+</header>
+
+<div class="facts" aria-label="Key facts">
+  <div class="wrap">
+    <div class="fact"><strong>~4 bigha</strong><span>Land on SH15 (≈1.3 acre)</span></div>
+    <div class="fact"><strong>~3,000 ft²</strong><span>Built-to-suit showroom</span></div>
+    <div class="fact"><strong>SH15</strong><span>Direct highway frontage</span></div>
+    <div class="fact"><strong>3</strong><span>Phase 1 spaces open now</span></div>
+  </div>
+</div>
+
+<main>
+
+<section class="tour" id="tour">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">3D SITE TOUR</div>
+      <div>
+        <h2>Walk around Nagarayan Estate</h2>
+        <p>Drag to rotate, pinch or scroll to zoom, and tap a building to learn about it. Golden aman paddy, coconut palms, village homes and the river setting of rural Howrah surround the site. Switch to dusk to see it light up.</p>
+      </div>
+    </div>
+    <div class="stage" id="stage">
+      <canvas id="scene3d" aria-label="Interactive 3D model of Nagarayan Estate on State Highway 15"></canvas>
+      <div class="hud top-left">
+        <div class="hud-btns" role="group" aria-label="Camera views">
+          <button type="button" data-view="road" class="on">Highway view</button>
+          <button type="button" data-view="bird">Bird's eye</button>
+          <button type="button" data-view="street">Street level</button>
+          <button type="button" data-view="river">Riverside</button>
+        </div>
+      </div>
+      <div class="hud top-right">
+        <div class="hud-btns" role="group" aria-label="Scene settings">
+          <button type="button" id="todBtn">Switch to dusk</button>
+          <button type="button" id="spinBtn" aria-pressed="true">Auto-rotate on</button>
+          <button type="button" id="p2Btn" aria-pressed="true">Phase 2 shown</button>
+          <button type="button" id="lblBtn" aria-pressed="true">Labels on</button>
+        </div>
+      </div>
+      <div class="info3d" id="info3d" aria-live="polite">
+        <div class="pp-k" id="i3k">TAP A BUILDING</div>
+        <h3 id="i3t">Nagarayan Estate</h3>
+        <p id="i3d">About 4 bigha on State Highway 15 at Srikol, Shyampur. Tap the showroom, restaurant, tea stall or Phase 2 block.</p>
+        <a class="btn solid" id="i3btn" href="#enquire" hidden>Enquire about this space</a>
+      </div>
+      <div class="loadnote" id="loadNote">Loading real trees, shrubs and sky…</div>
+      <div class="nogl" id="nogl" hidden>The 3D tour needs WebGL, which this browser has turned off. The site plan below shows the same layout.</div>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">OUR MARK</div>
+      <div>
+        <h2>Three buildings, one story.</h2>
+        <p>Our logo traces how this land is changing: from the mud huts and chala-roof homes of rural Howrah to modern commercial buildings along the highway.</p>
+      </div>
+    </div>
+    <figure class="evo-wrap">
+      <svg class="evo s1 s2 s3 s4" id="evo" viewBox="0 0 800 320" role="img" aria-label="Animation: a Bengal hut rises, then a chala-roof house, then a tower, forming the Nagarayan mark">
+        <defs>
+          <linearGradient id="evoSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EAF0F2"/><stop offset="1" stop-color="#FBF7EE"/></linearGradient>
+          <radialGradient id="evoSun"><stop offset="0" stop-color="#F6D27A"/><stop offset=".6" stop-color="#E9B44C" stop-opacity=".55"/><stop offset="1" stop-color="#E9B44C" stop-opacity="0"/></radialGradient>
+          <filter id="evoGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <rect width="800" height="320" rx="14" fill="url(#evoSky)"/>
+        <circle class="sun" cx="720" cy="74" r="58" fill="url(#evoSun)"/>
+        <g class="brandtxt"><text x="40" y="64" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="38" letter-spacing="5" fill="#0D1628">NAGARAYAN</text><text x="42" y="90" font-family="Cinzel, Georgia, serif" font-weight="600" font-size="13" letter-spacing="7" fill="#9C7A2E">DEVELOPERS</text></g>
+        <path class="arc a1" d="M212 214 C 260 150 300 150 338 196" fill="none" stroke="#C9A24A" stroke-width="2.5" stroke-dasharray="6 7" pathLength="100"/>
+        <path class="arc a2" d="M462 178 C 510 100 560 92 600 120" fill="none" stroke="#C9A24A" stroke-width="2.5" stroke-dasharray="6 7" pathLength="100"/>
+        <rect x="40" y="283" width="720" height="5" rx="2" fill="#C9A24A" class="groundline"/>
+        <g transform="translate(112 -77.5) scale(1.45)"><g class="rise r1"><path d="M8 226 C20 196 60 196 72 226 Z M16 224 H64 V250 H16 Z" fill="#8A6A44"/><path d="M34 232 H46 V250 H34 Z" fill="#FBF7EE"/></g></g>
+        <g transform="translate(233.25 -77.5) scale(1.45)"><g class="rise r2"><path d="M78 176 C96 150 134 150 152 176 L146 180 C130 162 100 162 84 180 Z M84 178 H146 V250 H84 Z" fill="#C9A24A"/><path d="M108 220 H122 V250 H108 Z" fill="#FBF7EE"/></g></g>
+        <g transform="translate(366.1 -77.5) scale(1.45)"><g class="rise r3"><path d="M160 96 H204 V250 H160 Z M180 72 H184 V96 H180 Z" fill="#0D1628"/><g class="wins"><rect class="win" x="168" y="114.5" width="28" height="3"/><rect class="win" x="168" y="134.5" width="28" height="3"/><rect class="win" x="168" y="154.5" width="28" height="3"/><rect class="win" x="168" y="174.5" width="28" height="3"/><rect class="win" x="168" y="194.5" width="28" height="3"/><rect class="win" x="168" y="214.5" width="28" height="3"/></g></g></g>
+        <g font-family="Cinzel, Georgia, serif" font-weight="600" font-size="13" letter-spacing="4" text-anchor="middle"><text class="lab l1" x="170" y="310">ROOTS</text><text class="lab l2" x="400" y="310">GROWTH</text><text class="lab l3" x="630" y="310">FUTURE</text></g>
+      </svg>
+      <figcaption class="evo-ctl"><button type="button" class="btn line" id="evoPlay">Pause</button><span>From a Bengal hut, to a chala house, to a tower.</span></figcaption>
+    </figure>
+    <div class="story">
+      <div class="step">
+        <svg viewBox="4 192 72 62" aria-hidden="true"><path d="M8 226 C20 196 60 196 72 226 Z M16 224 H64 V250 H16 Z" fill="#8A6A44"/><path d="M34 232 H46 V250 H34 Z" fill="#FBF7EE"/></svg>
+        <span class="tag">ROOTS</span>
+        <h3>The Bengal hut</h3>
+        <p>We are local. Our team knows Shyampur, its people and its land, and works with families who have farmed here for generations.</p>
+      </div>
+      <div class="step">
+        <svg viewBox="74 148 82 106" aria-hidden="true"><path d="M78 176 C96 150 134 150 152 176 L146 180 C130 162 100 162 84 180 Z M84 178 H146 V250 H84 Z" fill="#C9A24A"/><path d="M108 220 H122 V250 H108 Z" fill="#FBF7EE"/></svg>
+        <span class="tag">GROWTH</span>
+        <h3>The chala house</h3>
+        <p>We build what the area needs next: practical commercial spaces for brands, restaurants and services that want to reach highway traffic.</p>
+      </div>
+      <div class="step">
+        <svg viewBox="156 66 52 188" aria-hidden="true"><path d="M160 96 H204 V250 H160 Z M180 70 H184 V96 H180 Z" fill="#0D1628"/><g fill="#FBF7EE"><rect x="168" y="114.5" width="28" height="3"/><rect x="168" y="134.5" width="28" height="3"/><rect x="168" y="154.5" width="28" height="3"/><rect x="168" y="174.5" width="28" height="3"/><rect x="168" y="194.5" width="28" height="3"/><rect x="168" y="214.5" width="28" height="3"/></g></svg>
+        <span class="tag">FUTURE</span>
+        <h3>The tower</h3>
+        <p>Nagarayan Estate is planned in phases, so the site can grow into a full commercial hub on SH15 as demand builds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="spaces" id="spaces">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">AVAILABLE SPACES</div>
+      <div>
+        <h2>Phase 1 at Nagarayan Estate</h2>
+        <p>Spaces are offered on long lease. We can build to your brand's specification or lease the land for you to fit out.</p>
+      </div>
+    </div>
+    <div class="space-grid">
+      <article class="space lead">
+        <div class="size">~3,000 SQ FT · HIGHWAY FRONT</div>
+        <h3>Car showroom</h3>
+        <ul>
+          <li>Built-to-suit showroom, or bare land on long lease</li>
+          <li>9–15 year lease; dealer does the fit-out</li>
+          <li>Room for display, service and a workshop</li>
+          <li>First-floor space suits a bank branch or office</li>
+        </ul>
+        <span class="status">Inviting dealer partners</span>
+      </article>
+      <article class="space">
+        <div class="size">~1,200–1,500 SQ FT · 30 FT FRONTAGE</div>
+        <h3>Restaurant &amp; café</h3>
+        <ul>
+          <li>Facing SH15 with a clear road view</li>
+          <li>Footfall from showroom visitors and highway travellers</li>
+          <li>Suited to a family restaurant or highway dhaba</li>
+        </ul>
+        <span class="status">Inviting operators</span>
+      </article>
+      <article class="space">
+        <div class="size">KIOSK · ROADSIDE</div>
+        <h3>Tea stall</h3>
+        <ul>
+          <li>Small roadside kiosk at the front of the site</li>
+          <li>Ideal for tea, snacks and quick stops</li>
+          <li>Short or long lease available</li>
+        </ul>
+        <span class="status">Inviting operators</span>
+      </article>
+    </div>
+    <p class="plan-note" style="margin-top:22px">Phase 2 (planned): larger commercial building with space for retail, a bank, a pharmacy, clinics or a banquet hall. Early enquiries are welcome.</p>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">SITE PLAN</div>
+      <div>
+        <h2>How Phase 1 sits on the highway</h2>
+        <p>The showroom takes the widest frontage; the restaurant and tea stall keep the front lively and draw people in.</p>
+      </div>
+    </div>
+    <div class="plan-layout">
+    <div class="plan-box">
+      <svg viewBox="0 0 760 360" role="img" aria-label="Interactive Phase 1 site plan along State Highway 15. Select a space to see details.">
+        <g class="zone" data-z="phase2" tabindex="0" role="button" aria-label="Phase 2 land">
+          <rect x="20" y="20" width="720" height="250" fill="#F6EFE0" stroke="#C9B994" stroke-width="2" stroke-dasharray="6 5" rx="4"/>
+          <text x="380" y="58" text-anchor="middle" font-family="Manrope, sans-serif" font-size="14" font-weight="600" fill="#5E6577" letter-spacing="2">PHASE 2 · FUTURE DEVELOPMENT</text>
+        </g>
+        <g class="zone" data-z="showroom" tabindex="0" role="button" aria-label="Car showroom">
+          <rect x="30" y="130" width="360" height="130" fill="#0D1628" rx="3"/>
+          <text x="210" y="190" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="26" font-weight="600" fill="#F6EFE0">Car showroom</text>
+          <text x="210" y="216" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" fill="#C9A24A" letter-spacing="1">~3,000 SQ FT</text>
+        </g>
+        <g class="zone" data-z="drive" tabindex="0" role="button" aria-label="Entry and driveway">
+          <rect x="400" y="150" width="110" height="110" fill="#FBF7EE" stroke="#C9B994" stroke-width="2" rx="3"/>
+          <text x="455" y="200" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#5E6577">Entry &amp;</text>
+          <text x="455" y="218" text-anchor="middle" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#5E6577">driveway</text>
+        </g>
+        <g class="zone" data-z="restaurant" tabindex="0" role="button" aria-label="Restaurant">
+          <rect x="520" y="160" width="140" height="100" fill="#C9A24A" rx="3"/>
+          <text x="590" y="206" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="22" font-weight="600" fill="#0D1628">Restaurant</text>
+          <text x="590" y="228" text-anchor="middle" font-family="Manrope, sans-serif" font-size="12" fill="#0D1628">30 ft frontage</text>
+        </g>
+        <g class="zone" data-z="tea" tabindex="0" role="button" aria-label="Tea stall">
+          <rect x="670" y="200" width="60" height="60" fill="#8A6A44" rx="3"/>
+          <text x="700" y="227" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="700" fill="#F6EFE0">Tea</text>
+          <text x="700" y="242" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="700" fill="#F6EFE0">stall</text>
+        </g>
+        <rect x="0" y="290" width="760" height="56" fill="#2B3142"/>
+        <path class="lane" d="M0 318 H760" stroke="#F6EFE0" stroke-width="3" stroke-dasharray="26 18"/>
+        <g class="car"><rect x="-60" y="296" width="44" height="16" rx="5" fill="#C9A24A"/><rect x="-52" y="292" width="24" height="8" rx="3" fill="#C9A24A"/></g>
+        <text x="20" y="312" font-family="Manrope, sans-serif" font-size="12" font-weight="700" fill="#F6EFE0" letter-spacing="2">STATE HIGHWAY 15</text>
+        <text x="740" y="340" text-anchor="end" font-family="Manrope, sans-serif" font-size="12" fill="#C9CEDA">← Bagnan (NH16) · Gadiara →</text>
+      </svg>
+    </div>
+    <aside class="plan-panel" id="planPanel" aria-live="polite">
+      <div class="pp-k" id="ppK">SELECTED SPACE</div>
+      <h3 id="ppT">Car showroom</h3>
+      <p id="ppD">The widest highway frontage on the site, planned for a car or two-wheeler dealer.</p>
+      <dl id="ppL"></dl>
+      <button class="btn solid" id="ppBtn" type="button">Enquire about this space</button>
+    </aside>
+    </div>
+    <p class="plan-note">Tap a block on the plan to see details. Indicative layout for discussion; final sizes depend on approvals and tenant requirements.</p>
+  </div>
+</section>
+
+<section class="spaces" id="location">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">LOCATION</div>
+      <div>
+        <h2>Srikol, Shyampur, Howrah</h2>
+        <p>On State Highway 15, the main road from the Bagnan side of NH16 down to Gadiara, the meeting point of the Hooghly and Rupnarayan rivers.</p>
+      </div>
+    </div>
+    <div class="loc">
+      <div class="loc-card">
+        <div class="eyebrow" style="color:var(--gold-deep)">NEARBY</div>
+        <ol class="route">
+          <li>Bagnan<small>Connects to NH16 (Kolkata–Kharagpur)</small></li>
+          <li class="here">Nagarayan Estate, Srikol<small>Shyampur-I block, Howrah</small></li>
+          <li>Shyampur<small>Block headquarters and local market</small></li>
+          <li>Gadiara<small>River-confluence tourist spot</small></li>
+        </ol>
+        <p style="margin:22px 0 0"><a class="btn solid" href="https://maps.app.goo.gl/iohWDXYEEA7s8aYL7">Open in Google Maps</a></p>
+      </div>
+      <div class="loc-card">
+        <div class="eyebrow" style="color:var(--gold-deep)">WHY THIS SITE</div>
+        <ul class="why" style="margin-top:16px">
+          <li><span class="n">1</span><span><b>Direct highway frontage.</b> Your brand is seen by every vehicle on SH15.</span></li>
+          <li><span class="n">2</span><span><b>Growing catchment.</b> Villages across Shyampur and Bagnan, with demand for brands closer to home.</span></li>
+          <li><span class="n">3</span><span><b>Tourist traffic.</b> Weekend visitors heading to Gadiara pass the site.</span></li>
+          <li><span class="n">4</span><span><b>Local developer.</b> One point of contact for approvals, construction and handover.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="phases">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">ROADMAP</div>
+      <div>
+        <h2>Built in phases</h2>
+        <p>Choose a phase to see what it adds to the estate.</p>
+      </div>
+    </div>
+    <div class="phases">
+      <div class="ph-tabs" role="tablist" aria-label="Development phases">
+        <button role="tab" id="tab-1" aria-selected="true" aria-controls="ph-1" data-p="1">Phase 1<small>Roadside front</small></button>
+        <button role="tab" id="tab-2" aria-selected="false" aria-controls="ph-2" data-p="2" tabindex="-1">Phase 2<small>Commercial building</small></button>
+        <button role="tab" id="tab-3" aria-selected="false" aria-controls="ph-3" data-p="3" tabindex="-1">Phase 3<small>Destination</small></button>
+      </div>
+      <div class="ph-panel" role="tabpanel" id="ph-1" aria-labelledby="tab-1">
+        <h3>Phase 1 · The roadside front</h3>
+        <p>A car showroom, a restaurant and a tea stall on the SH15 frontage, so the site becomes a known stop on the highway.</p>
+        <div class="chips"><span>Car showroom</span><span>Restaurant &amp; café</span><span>Tea stall</span><span>Bank / office upstairs</span></div>
+        <span class="status">Open for tenants now</span>
+      </div>
+      <div class="ph-panel" role="tabpanel" id="ph-2" aria-labelledby="tab-2" hidden>
+        <h3>Phase 2 · Commercial building</h3>
+        <p>A multi-storey building behind the frontage with ground-floor retail and services, and a banquet hall above.</p>
+        <div class="chips"><span>Retail &amp; brands</span><span>Pharmacy</span><span>Diagnostic lab</span><span>Clinics</span><span>Banquet hall</span></div>
+        <span class="status later">Planned · early enquiries welcome</span>
+      </div>
+      <div class="ph-panel" role="tabpanel" id="ph-3" aria-labelledby="tab-3" hidden>
+        <h3>Phase 3 · A destination on SH15</h3>
+        <p>As the area grows, the estate can expand into a larger hub for shopping, healthcare and stay, serving Shyampur and highway travellers.</p>
+        <div class="chips"><span>Shopping</span><span>Healthcare</span><span>Guest house</span><span>Parking &amp; services</span></div>
+        <span class="status later">Long-term vision</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="spaces" id="enquire">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">ENQUIRY</div>
+      <div>
+        <h2>Tell us what you need</h2>
+        <p>Pick your options and we will prepare a message for you to send on WhatsApp or by email to developersnagarayan@gmail.com. Nothing is sent until you send it yourself.</p>
+      </div>
+    </div>
+    <form class="enq" id="enq" novalidate>
+      <fieldset>
+        <legend>I am interested in</legend>
+        <div class="seg" id="segSpace">
+          <label><input type="radio" name="space" value="Car showroom" checked><span>Car showroom</span></label>
+          <label><input type="radio" name="space" value="Restaurant / café"><span>Restaurant / café</span></label>
+          <label><input type="radio" name="space" value="Tea stall / kiosk"><span>Tea stall / kiosk</span></label>
+          <label><input type="radio" name="space" value="Phase 2 space"><span>Phase 2 space</span></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Arrangement</legend>
+        <div class="seg">
+          <label><input type="radio" name="mode" value="Built-to-suit building" checked><span>Built-to-suit</span></label>
+          <label><input type="radio" name="mode" value="Land on long lease"><span>Land on lease</span></label>
+          <label><input type="radio" name="mode" value="Not sure yet"><span>Not sure yet</span></label>
+        </div>
+      </fieldset>
+      <div class="row2">
+        <div class="field">
+          <label for="lease">Lease length: <output id="leaseOut">10 years</output></label>
+          <input type="range" id="lease" min="1" max="20" value="10">
+        </div>
+        <div class="field">
+          <label for="when">Planned opening</label>
+          <select id="when">
+            <option>Within 6 months</option>
+            <option selected>6–12 months</option>
+            <option>12–24 months</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="name">Your name</label><input id="name" type="text" autocomplete="name" placeholder="e.g. Rahul Das"></div>
+        <div class="field"><label for="biz">Business or brand</label><input id="biz" type="text" placeholder="e.g. Das Motors"></div>
+      </div>
+      <div class="preview">
+        <div class="pp-k">YOUR MESSAGE</div>
+        <p id="msgPreview"></p>
+      </div>
+      <div class="btns" style="margin:0">
+        <a class="btn solid" id="waSend" href="https://wa.me/919007995554">Send on WhatsApp</a>
+        <a class="btn line" id="mailSend" href="mailto:developersnagarayan@gmail.com">Send by email</a>
+        <button class="btn line" id="copyMsg" type="button">Copy message</button>
+        <span class="copied" id="copied" role="status"></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">QUESTIONS</div>
+      <div><h2>Common questions</h2></div>
+    </div>
+    <div class="faq">
+      <details open><summary>Can you build the showroom to our brand's design?</summary><p>Yes. For the showroom we can construct the building to your brand's layout and specifications, and you handle the interior fit-out. We can also lease the land if you prefer to build yourself.</p></details>
+      <details><summary>How long are the leases?</summary><p>Showroom leases are typically 9–15 years with agreed rent increases. Restaurant and kiosk terms are flexible, from short licences to long leases.</p></details>
+      <details><summary>Who handles approvals and construction?</summary><p>We do. Nagarayan Developers manages land paperwork, approvals and construction, and gives you one point of contact through to handover.</p></details>
+      <details><summary>Can we visit the site?</summary><p>Yes. Call or WhatsApp us to fix a time, and our local team will meet you at the site on SH15.</p></details>
+      <details><summary>Is there space for future expansion?</summary><p>Yes. Land behind the frontage is planned for Phase 2, so a tenant who grows can discuss additional space with us early.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">CONTACT</div>
+      <div>
+        <h2>Visit the site with us</h2>
+        <p>Call or message to discuss space, lease terms or a built-to-suit plan for your brand.</p>
+      </div>
+    </div>
+    <div class="contact-grid">
+      <a class="c-card" href="tel:+919007995554"><span class="k">CALL</span><span class="v">+91 90079 95554</span><span class="h">Talk to us about the site</span></a>
+      <a class="c-card" href="https://wa.me/919007995554"><span class="k">WHATSAPP</span><span class="v">+91 90079 95554</span><span class="h">Send a message any time</span></a>
+      <a class="c-card" href="mailto:developersnagarayan@gmail.com"><span class="k">EMAIL</span><span class="v v-sm">developersnagarayan@<wbr>gmail.com</span><span class="h">For proposals and documents</span></a>
+      <a class="c-card" href="https://maps.app.goo.gl/iohWDXYEEA7s8aYL7"><span class="k">SITE</span><span class="v">Srikol, Shyampur</span><span class="h">State Highway 15, Howrah, West Bengal</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nagarayan Developers · Srikol, Shyampur, Howrah · developersnagarayan@gmail.com</span>
+    <span>Nagarayan Estate · State Highway 15 · 3D trees, shrubs and sky from Poly Haven (CC0)</span>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/919007995554" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.6a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.2-.2-.5-.3Z"/></svg>
+  WhatsApp us
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/objects/Sky.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/objects/Water.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js"></script>
+<script>
+/* ---------- 3D site tour (realistic) ---------- */
+(function(){
+  var canvas = document.getElementById('scene3d'), stage = document.getElementById('stage');
+  function fail(){ document.getElementById('nogl').hidden = false; }
+  if(!window.THREE || !THREE.OrbitControls){ fail(); return; }
+  var renderer;
+  try { renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, powerPreference:'high-performance'}); } catch(e){ fail(); return; }
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var small = Math.min(screen.width, screen.height) < 700;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, small ? 1.5 : 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.62;
+  renderer.physicallyCorrectLights = false;
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(42, 1, 0.3, 20000);
+  camera.position.set(17, 6.5, 27);
+  var controls = new THREE.OrbitControls(camera, canvas);
+  controls.enableDamping = true; controls.dampingFactor = 0.07;
+  controls.maxPolarAngle = Math.PI*0.48; controls.minDistance = 6; controls.maxDistance = 150;
+  controls.target.set(0,1.4,1);
+  controls.autoRotate = !reduce; controls.autoRotateSpeed = 0.4;
+
+  var seed = 17; function rnd(){ seed = (seed*16807) % 2147483647; return (seed-1)/2147483646; }
+  function range(a,b){ return a + (b-a)*rnd(); }
+  var MAXANI = renderer.capabilities.getMaxAnisotropy();
+
+  /* ---------- procedural textures ---------- */
+  function cnv(w,h){ var c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
+  function tex(c, rx, ry, srgb){ var t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rx||1, ry||1); t.anisotropy = MAXANI; if(srgb !== false) t.encoding = THREE.sRGBEncoding; return t; }
+  function speckle(g, w, h, n, cols, smin, smax, alpha){
+    for(var i=0;i<n;i++){ g.globalAlpha = alpha === undefined ? 1 : alpha; g.fillStyle = cols[(Math.random()*cols.length)|0]; var s = smin + Math.random()*(smax-smin); g.fillRect(Math.random()*w, Math.random()*h, s, s); }
+    g.globalAlpha = 1;
+  }
+  function grassTex(){ var c = cnv(512,512), g = c.getContext('2d'); g.fillStyle = '#5E8A3A'; g.fillRect(0,0,512,512);
+    speckle(g,512,512,9000,['#4E7A30','#6F9A45','#82A851','#557F34','#93B25C','#4A6F2C'],1,4,0.55);
+    for(var i=0;i<1600;i++){ g.strokeStyle = ['#6E9A3E','#4C7529','#8DB052'][i%3]; g.globalAlpha = 0.5; g.beginPath(); var x = Math.random()*512, y = Math.random()*512; g.moveTo(x,y); g.lineTo(x + (Math.random()-0.5)*4, y - 3 - Math.random()*6); g.stroke(); }
+    g.globalAlpha = 1; return tex(c, 90, 90); }
+  function paddyTex(golden){ var c = cnv(256,256), g = c.getContext('2d');
+    g.fillStyle = golden ? '#B79A43' : '#6E9A3A'; g.fillRect(0,0,256,256);
+    for(var y=0; y<256; y+=8){ g.fillStyle = golden ? '#A88A36' : '#5E8A30'; g.fillRect(0,y,256,3); }
+    speckle(g,256,256,3500, golden ? ['#C9AE58','#9C7F31','#D8BE6A','#8E7430'] : ['#7EA846','#5A8530','#8DB552','#4D7428'], 1, 3, 0.6);
+    return tex(c, 3, 2); }
+  function asphaltTex(){ var c = cnv(512,128), g = c.getContext('2d'); g.fillStyle = '#4A4D52'; g.fillRect(0,0,512,128);
+    speckle(g,512,128,7000,['#3C3F44','#5A5D62','#666970','#35383C'],1,2.5,0.7);
+    g.globalAlpha = 0.25; g.fillStyle = '#2E3034'; g.fillRect(0,40,512,10); g.fillRect(0,80,512,10); g.globalAlpha = 1;
+    return tex(c, 120, 1); }
+  function dirtTex(){ var c = cnv(256,256), g = c.getContext('2d'); g.fillStyle = '#B8A27A'; g.fillRect(0,0,256,256);
+    speckle(g,256,256,6000,['#A88F66','#C6B28A','#9A8158','#D2C29E','#8C744E'],1,3,0.7); return tex(c, 4, 4); }
+  function pavingTex(){ var c = cnv(256,256), g = c.getContext('2d'); g.fillStyle = '#CFC6B6'; g.fillRect(0,0,256,256);
+    speckle(g,256,256,2500,['#C2B8A6','#D9D1C2','#BDB2A0'],1,2,0.6);
+    g.strokeStyle = 'rgba(120,108,90,.55)'; g.lineWidth = 2; for(var i=0;i<=256;i+=32){ g.beginPath(); g.moveTo(i,0); g.lineTo(i,256); g.moveTo(0,i); g.lineTo(256,i); g.stroke(); }
+    return tex(c, 6, 4); }
+  function plasterTex(col){ var c = cnv(256,256), g = c.getContext('2d'); g.fillStyle = col; g.fillRect(0,0,256,256);
+    speckle(g,256,256,3000,['rgba(0,0,0,.05)','rgba(255,255,255,.08)','rgba(80,60,40,.06)'],1,3);
+    var gr = g.createLinearGradient(0,200,0,256); gr.addColorStop(0,'rgba(90,70,50,0)'); gr.addColorStop(1,'rgba(90,70,50,.25)'); g.fillStyle = gr; g.fillRect(0,200,256,56);
+    return tex(c, 1, 1); }
+  function roofTileTex(){ var c = cnv(256,256), g = c.getContext('2d'); g.fillStyle = '#9C4A2A'; g.fillRect(0,0,256,256);
+    for(var y=0;y<256;y+=16){ for(var x=(y/16)%2*8; x<256; x+=16){ var gr = g.createLinearGradient(x,y,x,y+16); gr.addColorStop(0,'#B5603A'); gr.addColorStop(1,'#7E3A20'); g.fillStyle = gr; g.fillRect(x+1,y+1,14,14); } }
+    speckle(g,256,256,1500,['rgba(40,20,10,.2)','rgba(255,220,180,.1)'],1,2); return tex(c, 2, 2); }
+  function thatchTex(){ var c = cnv(256,256), g = c.getContext('2d'); g.fillStyle = '#B5964F'; g.fillRect(0,0,256,256);
+    for(var i=0;i<2500;i++){ g.strokeStyle = ['#C9AC62','#9C7E3C','#D8BE75','#8A6E33'][i%4]; g.globalAlpha = 0.7; g.beginPath(); var x = Math.random()*256, y = Math.random()*256; g.moveTo(x,y); g.lineTo(x + (Math.random()-0.5)*3, y + 8 + Math.random()*10); g.stroke(); }
+    g.globalAlpha = 1; return tex(c, 2, 1); }
+  function barkTex(){ var c = cnv(64,256), g = c.getContext('2d'); g.fillStyle = '#7A6248'; g.fillRect(0,0,64,256);
+    for(var y=0;y<256;y+=10){ g.fillStyle = 'rgba(40,28,18,.45)'; g.fillRect(0,y,64,2); g.fillStyle = 'rgba(200,180,150,.15)'; g.fillRect(0,y+3,64,2); }
+    speckle(g,64,256,700,['#5E4A35','#8F775C'],1,2,0.6); return tex(c, 1, 3); }
+  function frondTex(){ var c = cnv(128,512), g = c.getContext('2d'); g.clearRect(0,0,128,512);
+    g.strokeStyle = '#7A8A3A'; g.lineWidth = 4; g.beginPath(); g.moveTo(64,512); g.lineTo(64,0); g.stroke();
+    for(var y=500; y>8; y-=7){ var len = 58 * Math.sin(Math.PI * (512-y)/520) + 6; var gs = ['#3F7A2E','#4C8B35','#356A27','#5A9440'][(y/7|0)%4];
+      g.strokeStyle = gs; g.lineWidth = 3.2; g.beginPath(); g.moveTo(64,y); g.quadraticCurveTo(64-len*0.5, y-6, 64-len, y-16); g.stroke();
+      g.beginPath(); g.moveTo(64,y); g.quadraticCurveTo(64+len*0.5, y-6, 64+len, y-16); g.stroke(); }
+    var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.anisotropy = MAXANI; return t; }
+  function leafTex(){ var c = cnv(256,256), g = c.getContext('2d'); g.clearRect(0,0,256,256);
+    for(var i=0;i<230;i++){ var a = Math.random()*Math.PI*2, r = Math.sqrt(Math.random())*110, x = 128 + Math.cos(a)*r, y = 128 + Math.sin(a)*r;
+      g.save(); g.translate(x,y); g.rotate(Math.random()*Math.PI*2); g.fillStyle = ['#3E6E2A','#4F8435','#2F5A21','#5E9440','#466F2C'][i%5];
+      g.beginPath(); g.ellipse(0,0,9,4.5,0,0,Math.PI*2); g.fill(); g.restore(); }
+    var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; return t; }
+  function grassTuftTex(){ var c = cnv(128,128), g = c.getContext('2d'); g.clearRect(0,0,128,128);
+    for(var i=0;i<60;i++){ var x = 10 + Math.random()*108, h = 40 + Math.random()*80; g.strokeStyle = ['#5E8A33','#7AA347','#4B7428','#93B55C'][i%4]; g.lineWidth = 2.2; g.beginPath(); g.moveTo(x,128); g.quadraticCurveTo(x + (Math.random()-0.5)*20, 128-h*0.6, x + (Math.random()-0.5)*30, 128-h); g.stroke(); }
+    var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; return t; }
+  function waterNormals(){
+    var N = 256, c = cnv(N,N), g = c.getContext('2d'), img = g.createImageData(N,N), h = new Float32Array(N*N), waves = [];
+    for(var k=0;k<14;k++){ waves.push({fx:(1+(Math.random()*6|0))*(Math.random()<0.5?-1:1), fy:(1+(Math.random()*6|0))*(Math.random()<0.5?-1:1), a:1/(1+k*0.5), p:Math.random()*6.28}); }
+    for(var y=0;y<N;y++) for(var x=0;x<N;x++){ var v = 0; for(k=0;k<waves.length;k++){ var w = waves[k]; v += w.a*Math.sin(2*Math.PI*(w.fx*x + w.fy*y)/N + w.p); } h[y*N+x] = v; }
+    for(y=0;y<N;y++) for(x=0;x<N;x++){
+      var dx = h[y*N+((x+1)%N)] - h[y*N+((x-1+N)%N)], dy = h[((y+1)%N)*N+x] - h[((y-1+N)%N)*N+x];
+      var nx = -dx*0.6, ny = -dy*0.6, nz = 1, l = Math.sqrt(nx*nx+ny*ny+nz*nz), i4 = (y*N+x)*4;
+      img.data[i4] = (nx/l*0.5+0.5)*255; img.data[i4+1] = (ny/l*0.5+0.5)*255; img.data[i4+2] = (nz/l*0.5+0.5)*255; img.data[i4+3] = 255; }
+    g.putImageData(img,0,0); var t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; return t; }
+
+  var T = { grass:grassTex(), paddy:paddyTex(false), gold:paddyTex(true), asphalt:asphaltTex(), dirt:dirtTex(), paving:pavingTex(),
+    tiles:roofTileTex(), thatch:thatchTex(), bark:barkTex(), frond:frondTex(), leaf:leafTex(), tuft:grassTuftTex() };
+
+  function mat(c, o){ var m = new THREE.MeshStandardMaterial(Object.assign({color:c, roughness:0.9, metalness:0}, o||{})); m.color.convertSRGBToLinear(); return m; }
+  function tmat(map, o){ return new THREE.MeshStandardMaterial(Object.assign({map:map, roughness:0.95, metalness:0}, o||{})); }
+
+  var pick = [], traffic = [], lightsM = [], glowLamps = [];
+  function add(m, key, noShadow){ if(!noShadow){ m.castShadow = true; } m.receiveShadow = true; if(key){ m.userData.key = key; pick.push(m); } scene.add(m); return m; }
+  function box(w,h,d,m,x,y,z,key){ var me = new THREE.Mesh(new THREE.BoxGeometry(w,h,d), m); me.position.set(x,y,z); return add(me,key); }
+  function flat(w,d,m,x,z,y){ var p = new THREE.Mesh(new THREE.PlaneGeometry(w,d), m); p.rotation.x = -Math.PI/2; p.position.set(x,y||0.02,z); p.receiveShadow = true; scene.add(p); return p; }
+
+  /* ---------- sky, sun, environment ---------- */
+  var sky = new THREE.Sky(); sky.scale.setScalar(15000); scene.add(sky);
+  var su = sky.material.uniforms; su.turbidity.value = 6; su.rayleigh.value = 1.6; su.mieCoefficient.value = 0.005; su.mieDirectionalG.value = 0.82;
+  var sunDir = new THREE.Vector3();
+  var hemi = new THREE.HemisphereLight(0xDDEBFF, 0x5B6E3A, 0.55); scene.add(hemi);
+  var sun = new THREE.DirectionalLight(0xFFF2DD, 2.1); sun.castShadow = true;
+  sun.shadow.mapSize.set(small ? 1024 : 2048, small ? 1024 : 2048);
+  var scam = sun.shadow.camera; scam.left = -32; scam.right = 32; scam.top = 32; scam.bottom = -32; scam.near = 1; scam.far = 250; sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
+  scene.add(sun); scene.add(sun.target);
+  scene.fog = new THREE.FogExp2(0xC9D8DF, 0.0042);
+  var pmrem = new THREE.PMREMGenerator(renderer), envRT = null;
+  function setSun(elev, azim){
+    var phi = THREE.MathUtils.degToRad(90 - elev), theta = THREE.MathUtils.degToRad(azim);
+    sunDir.setFromSphericalCoords(1, phi, theta); su.sunPosition.value.copy(sunDir);
+    sun.position.copy(sunDir).multiplyScalar(120); sun.target.position.set(0,0,0);
+    if(water) water.material.uniforms.sunDirection.value.copy(sunDir).normalize();
+    var envScene = new THREE.Scene(); var skyCopy = new THREE.Sky(); skyCopy.scale.setScalar(15000);
+    ['turbidity','rayleigh','mieCoefficient','mieDirectionalG'].forEach(function(k){ skyCopy.material.uniforms[k].value = su[k].value; });
+    skyCopy.material.uniforms.sunPosition.value.copy(sunDir); envScene.add(skyCopy);
+    if(envRT) envRT.dispose(); envRT = pmrem.fromScene(envScene); scene.environment = envRT.texture;
+  }
+
+  /* ---------- land ---------- */
+  var ground = flat(900, 900, tmat(T.grass, {color:0xC9D4AE}), 0, 0, 0);
+  var fieldMats = [tmat(T.paddy), tmat(T.gold), tmat(T.paddy, {color:0xDDEECC})];
+  function field(x, z, w, d, k){ flat(w, d, fieldMats[k], x, z, 0.03); flat(w+0.5, 0.35, tmat(T.dirt), x, z - d/2 - 0.1, 0.035); flat(0.35, d+0.5, tmat(T.dirt), x - w/2 - 0.1, z, 0.035); }
+  for(var i=0;i<18;i++){ for(var j=0;j<5;j++){ field(-96 + i*11.4, -16 - j*7.6, 10.8, 7, (i*3 + j) % 3 === 1 ? 1 : (i+j)%2 ? 0 : 2); } }
+  for(i=0;i<18;i++){ for(j=0;j<3;j++){ var fx0 = -96 + i*11.4; if(fx0 > -30 && fx0 < 30 && j === 0) continue; field(fx0, 20 + j*7.6, 10.8, 7, (i + j*2) % 3 === 0 ? 1 : 0); } }
+  flat(15.6, 13, tmat(T.dirt), 0, 0, 0.05);
+  var owned = flat(4.6, 13, tmat(T.grass, {color:0xA8C89A}), 10.1, 0, 0.055); owned.userData.key = 'owned'; pick.push(owned);
+  flat(14.6, 2.4, tmat(T.paving), 0, 6.2, 0.06);
+
+  /* fence: concrete posts and wire */
+  var postM = mat(0xE9E2D2);
+  var fencePts = [[-7.9,-6.6],[12.5,-6.6],[12.5,6.4]];
+  for(var fx=-7.9; fx<=12.5; fx+=1.6){ box(0.12,0.9,0.12,postM,fx,0.45,-6.6); }
+  for(var fz=-6.6; fz<=6.4; fz+=1.6){ box(0.12,0.9,0.12,postM,-7.9,0.45,fz); box(0.12,0.9,0.12,postM,12.5,0.45,fz); }
+  var wireM = new THREE.LineBasicMaterial({color:0x8E8E86});
+  [0.35,0.65].forEach(function(h){ var g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-7.9,h,6.4), new THREE.Vector3(-7.9,h,-6.6), new THREE.Vector3(12.5,h,-6.6), new THREE.Vector3(12.5,h,6.4)]); scene.add(new THREE.Line(g, wireM)); });
+
+  /* ---------- highway SH15 ---------- */
+  var road = flat(900, 3.8, tmat(T.asphalt, {roughness:0.92}), 0, 9.5, 0.07);
+  flat(900, 0.9, tmat(T.dirt), 0, 7.15, 0.065); flat(900, 0.9, tmat(T.dirt), 0, 11.85, 0.065);
+  var lineM = mat(0xF2EFE6, {roughness:0.6});
+  for(var dx=-440; dx<440; dx+=4.2){ flat(2, 0.12, lineM, dx, 9.5, 0.075); }
+  flat(900, 0.08, mat(0xE9E4D6), 0, 7.72, 0.075); flat(900, 0.08, mat(0xE9E4D6), 0, 11.28, 0.075);
+  flat(2.6, 1.2, tmat(T.paving, {color:0xBBBBBB}), 2.4, 7.4, 0.08);
+
+  /* electric poles and wires along the far side */
+  var poleM = mat(0xB9B4AA, {roughness:0.7}), poleTops = [];
+  for(var px=-120; px<=120; px+=14){ var pl = box(0.18, 6, 0.18, poleM, px, 3, 12.6); var arm = box(1.4, 0.1, 0.1, poleM, px, 5.7, 12.6); poleTops.push(new THREE.Vector3(px, 5.75, 12.0), new THREE.Vector3(px, 5.75, 13.2)); }
+  [[12.0],[13.2]].forEach(function(zz){
+    var pts = [];
+    for(var px2=-120; px2<120; px2+=14){ for(var s=0; s<=8; s++){ var t = s/8; pts.push(new THREE.Vector3(px2 + 14*t, 5.75 - Math.sin(Math.PI*t)*0.55, zz[0])); } }
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({color:0x2B2B2B})));
+  });
+
+  /* streetlights in front of the estate */
+  var lampHead = mat(0x333333, {emissive:0x000000});
+  [-6,0,6,11].forEach(function(x){ box(0.12, 4.2, 0.12, mat(0x6C6C6C, {metalness:0.6, roughness:0.4}), x, 2.1, 7.0); box(0.9, 0.08, 0.1, mat(0x6C6C6C, {metalness:0.6, roughness:0.4}), x+0.4, 4.15, 7.0);
+    var hd = box(0.5, 0.12, 0.25, lampHead, x+0.8, 4.08, 7.0); glowLamps.push(hd); });
+  var lampLights = [new THREE.PointLight(0xFFC77A, 0, 14, 2), new THREE.PointLight(0xFFC77A, 0, 14, 2)];
+  lampLights[0].position.set(-2.8, 3.8, 7.4); lampLights[1].position.set(8, 3.8, 7.4); lampLights.forEach(function(l){ scene.add(l); });
+
+  /* ---------- the estate ---------- */
+  var wallM = tmat(plasterTex('#EFE8DA')), fasciaM = mat(0xC9A24A, {metalness:0.85, roughness:0.32});
+  var darkM = mat(0x1B2333, {metalness:0.4, roughness:0.4}), navyM = mat(0x0D1628, {roughness:0.6});
+  var glass = new THREE.MeshPhysicalMaterial({color:0xA9CBDA, metalness:0.1, roughness:0.04, transmission:0, transparent:true, opacity:0.55, envMapIntensity:1.6, clearcoat:1, emissive:0x000000});
+  glass.color.convertSRGBToLinear();
+  // showroom ground floor: columns + glass, interior floor and cars
+  box(8, 0.12, 4, mat(0xD9D4CA, {roughness:0.3}), -3, 0.12, 3.4, 'showroom');
+  box(8, 0.3, 4, wallM, -3, 2.45, 3.4, 'showroom');
+  box(0.25, 2.4, 4, wallM, -6.88, 1.2, 3.4, 'showroom'); box(0.25, 2.4, 4, wallM, 0.88, 1.2, 3.4, 'showroom');
+  box(8, 2.4, 0.2, wallM, -3, 1.2, 1.5, 'showroom');
+  for(var c=0;c<4;c++){ box(0.18, 2.3, 0.18, darkM, -6.6 + c*2.4, 1.2, 5.32, 'showroom'); }
+  box(7.6, 2.1, 0.06, glass, -3, 1.18, 5.36, 'showroom');
+  // first floor
+  box(8.2, 1.9, 4.2, wallM, -3, 3.55, 3.4, 'showroom');
+  box(7.4, 0.9, 0.06, glass, -3, 3.6, 5.52, 'showroom');
+  for(var w=0; w<6; w++){ box(0.08, 0.9, 0.08, darkM, -6.45 + w*1.38, 3.6, 5.56, 'showroom'); }
+  box(8.5, 0.45, 0.25, fasciaM, -3, 2.62, 5.62, 'showroom');
+  box(8.4, 0.16, 4.4, navyM, -3, 4.56, 3.4, 'showroom');
+  // signage on fascia
+  (function(){ var sc = cnv(1024,64), g = sc.getContext('2d'); g.fillStyle = '#0D1628'; g.fillRect(0,0,1024,64); g.fillStyle = '#F6EFE0'; g.font = '600 40px "Cormorant Garamond", Georgia, serif'; g.textAlign = 'center'; g.fillText('CAR  SHOWROOM  ·  NAGARAYAN ESTATE', 512, 46);
+    var t = new THREE.CanvasTexture(sc); t.encoding = THREE.sRGBEncoding; var m = new THREE.Mesh(new THREE.PlaneGeometry(6.5, 0.38), new THREE.MeshBasicMaterial({map:t, toneMapped:false})); m.position.set(-3, 2.62, 5.76); add(m, 'showroom', true); })();
+
+  /* restaurant with Bengal chala roof */
+  box(2.8, 1.7, 3.4, tmat(plasterTex('#E6C99A')), 5.2, 0.85, 3.8, 'restaurant');
+  box(2.4, 1.05, 0.06, glass, 5.2, 0.85, 5.52, 'restaurant');
+  var roofShape = new THREE.Shape();
+  roofShape.moveTo(-1.85,-0.05); roofShape.quadraticCurveTo(0,1.7,1.85,-0.05); roofShape.lineTo(1.62,0.02); roofShape.quadraticCurveTo(0,1.4,-1.62,0.02); roofShape.lineTo(-1.85,-0.05);
+  var roofGeo = new THREE.ExtrudeGeometry(roofShape, {depth:4.1, bevelEnabled:false, curveSegments:24});
+  var roof = new THREE.Mesh(roofGeo, tmat(T.thatch, {color:0xD9B97A})); roof.position.set(5.2, 1.7, 1.75); add(roof, 'restaurant');
+  var gableShape = new THREE.Shape(); gableShape.moveTo(-1.62,0.02); gableShape.quadraticCurveTo(0,1.4,1.62,0.02); gableShape.lineTo(-1.62,0.02);
+  var gable = new THREE.Mesh(new THREE.ShapeGeometry(gableShape, 20), mat(0xA8743F)); gable.position.set(5.2, 1.7, 5.55); add(gable, 'restaurant');
+  for(var u=0; u<3; u++){
+    var ux = 4.1 + u*1.1;
+    box(0.04, 0.95, 0.04, mat(0xEDEDED), ux, 0.48, 6.55, 'restaurant');
+    var umb = new THREE.Mesh(new THREE.ConeGeometry(0.62, 0.32, 12, 1, true), mat(u%2 ? 0xC9A24A : 0xF4EFE5, {side:THREE.DoubleSide})); umb.position.set(ux, 1.02, 6.55); add(umb, 'restaurant');
+    var tbl = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.04, 16), mat(0x7A5C3E)); tbl.position.set(ux, 0.45, 6.55); add(tbl, 'restaurant');
+  }
+  (function(){ var sc = cnv(512,96), g = sc.getContext('2d'); g.fillStyle = '#7A3E1E'; g.fillRect(0,0,512,96); g.fillStyle = '#F6EFE0'; g.font = 'italic 600 54px "Cormorant Garamond", Georgia, serif'; g.textAlign = 'center'; g.fillText('Restaurant & Café', 256, 66);
+    var t = new THREE.CanvasTexture(sc); t.encoding = THREE.sRGBEncoding; var m = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 0.42), new THREE.MeshBasicMaterial({map:t, toneMapped:false})); m.position.set(5.2, 1.6, 5.6); add(m, 'restaurant', true); })();
+
+  /* tea stall */
+  box(1.0, 0.95, 0.9, tmat(plasterTex('#9C7650')), 7.4, 0.48, 5.4, 'tea');
+  box(1.0, 0.08, 0.35, mat(0x6B4A2B), 7.4, 0.75, 5.95, 'tea');
+  var thatch = new THREE.Mesh(new THREE.ConeGeometry(0.95, 0.75, 14), tmat(T.thatch)); thatch.position.set(7.4, 1.32, 5.4); add(thatch, 'tea');
+  [[7.0,6.3],[7.8,6.35]].forEach(function(p){ box(0.6,0.06,0.25,mat(0x6B4A2B),p[0],0.32,p[1],'tea'); });
+
+  /* Phase 2 glass massing */
+  var p2 = new THREE.Group();
+  var p2mesh = new THREE.Mesh(new THREE.BoxGeometry(9, 7, 4.5), new THREE.MeshPhysicalMaterial({color:0xE8D6A6, transparent:true, opacity:0.18, roughness:0.1, metalness:0.1, depthWrite:false}));
+  p2mesh.userData.key = 'phase2'; pick.push(p2mesh); p2.add(p2mesh);
+  p2.add(new THREE.LineSegments(new THREE.EdgesGeometry(p2mesh.geometry), new THREE.LineBasicMaterial({color:0xC9A24A})));
+  for(var fl=1; fl<4; fl++){ var ln = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(9,4.5)), new THREE.LineBasicMaterial({color:0xC9A24A, transparent:true, opacity:0.55})); ln.rotation.x = -Math.PI/2; ln.position.y = -3.5 + fl*1.75; p2.add(ln); }
+  p2.position.set(-2, 3.5, -3); scene.add(p2);
+
+  /* brand board */
+  function logoTex(){
+    var c = cnv(512,300), g = c.getContext('2d'); g.fillStyle = '#0D1628'; g.fillRect(0,0,512,300);
+    g.save(); g.translate(176,14); g.scale(0.78,0.78); g.translate(-6,-68);
+    g.fillStyle='#8A6A44'; g.fill(new Path2D('M8 226 C20 196 60 196 72 226 Z M16 224 H64 V250 H16 Z'));
+    g.fillStyle='#C9A24A'; g.fill(new Path2D('M78 176 C96 150 134 150 152 176 L146 180 C130 162 100 162 84 180 Z M84 178 H146 V250 H84 Z M6 250 H208 V254 H6 Z'));
+    g.fillStyle='#F6EFE0'; g.fill(new Path2D('M160 96 H204 V250 H160 Z M180 72 H184 V96 H180 Z'));
+    g.fillStyle='#0D1628'; g.fill(new Path2D('M34 232 H46 V250 H34 Z M108 220 H122 V250 H108 Z'));
+    for(var y=114.5; y<220; y+=20){ g.fillRect(168,y,28,3); }
+    g.restore();
+    g.fillStyle='#F6EFE0'; g.font='600 52px "Cormorant Garamond", Georgia, serif'; g.textAlign='center'; g.fillText('NAGARAYAN', 256, 238);
+    g.fillStyle='#C9A24A'; g.font='600 20px Cinzel, Georgia, serif'; g.fillText('D E V E L O P E R S', 256, 272);
+    var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.anisotropy = MAXANI; return t;
+  }
+  var board = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 2), new THREE.MeshBasicMaterial({map:logoTex(), toneMapped:false}));
+  board.position.set(-9.6, 3.4, 6.7); board.rotation.y = 0.35; add(board, 'brand', true);
+  var steel = mat(0x55595F, {metalness:0.8, roughness:0.35});
+  box(0.14, 2.5, 0.14, steel, -10.6, 1.25, 6.35); box(0.14, 2.5, 0.14, steel, -8.6, 1.25, 7.05);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(function(){ board.material.map = logoTex(); board.material.needsUpdate = true; }); }
+
+  /* ---------- village houses and shops ---------- */
+  var houseCols = ['#E8B4A0','#F0D58A','#A9C8D8','#EFE6D2','#C9DDB0','#E9C7D6','#F2C48F'];
+  var tilesM = tmat(T.tiles), thatchM = tmat(T.thatch);
+  function house(x, z, rot, kind){
+    var g = new THREE.Group(), w = range(2.6, 4), d = range(2.4, 3.2), h = range(1.6, 2.4);
+    var wall = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), tmat(plasterTex(houseCols[(rnd()*houseCols.length)|0])));
+    wall.position.y = h/2; wall.castShadow = wall.receiveShadow = true; g.add(wall);
+    if(kind === 'flat'){
+      var par = new THREE.Mesh(new THREE.BoxGeometry(w+0.1, 0.3, d+0.1), mat(0xE9E4DA)); par.position.y = h + 0.15; par.castShadow = true; g.add(par);
+      if(rnd() < 0.5){ var up = new THREE.Mesh(new THREE.BoxGeometry(w*0.6, 1.4, d*0.7), tmat(plasterTex(houseCols[(rnd()*houseCols.length)|0]))); up.position.set(-w*0.15, h + 1, 0); up.castShadow = true; g.add(up); }
+    } else {
+      var rs = new THREE.Shape(); rs.moveTo(-w/2-0.25, 0); rs.lineTo(0, 1.1); rs.lineTo(w/2+0.25, 0); rs.lineTo(-w/2-0.25, 0);
+      var rf = new THREE.Mesh(new THREE.ExtrudeGeometry(rs, {depth:d+0.4, bevelEnabled:false}), kind === 'thatch' ? thatchM : tilesM);
+      rf.position.set(0, h, -d/2-0.2); rf.castShadow = true; g.add(rf);
+    }
+    var door = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 1.1), mat(0x5A3B22)); door.position.set(0, 0.55, d/2+0.01); g.add(door);
+    [-1,1].forEach(function(s){ var win = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5), mat(0x2E3B4A, {roughness:0.3, metalness:0.2})); win.position.set(s*w*0.3, h*0.6, d/2+0.01); g.add(win); });
+    g.position.set(x, 0, z); g.rotation.y = rot; scene.add(g); return g;
+  }
+  var housesSpots = [[-22,15.5,Math.PI],[-28,16,Math.PI],[-35,15.8,Math.PI],[25,16,Math.PI],[31,15.6,Math.PI],[38,16.2,Math.PI],[44,15.7,Math.PI],[-46,15.8,Math.PI],
+    [-20,-1,0.2],[-26,-4,0.1],[-31,1,-0.3],[22,-2,-0.2],[29,1,0.25],[34,-3,0],[40,0.5,-0.1],[-40,-3,0.3],[48,-2,0.1],[-50,1,-0.2]];
+  housesSpots.forEach(function(p,k){ house(p[0], p[1], p[2], k%3 === 0 ? 'flat' : k%3 === 1 ? 'tiles' : (k%2 ? 'thatch' : 'tiles')); });
+  /* roadside shop row across the highway */
+  for(var sh=0; sh<5; sh++){ house(52 + sh*3.4, 15.6, Math.PI, 'flat'); house(-62 - sh*3.4, 15.6, Math.PI, sh%2 ? 'tiles' : 'flat'); }
+
+  /* ---------- trees (instanced for performance) ---------- */
+  var barkM = tmat(T.bark), frondM = new THREE.MeshStandardMaterial({map:T.frond, alphaTest:0.4, side:THREE.DoubleSide, roughness:0.8});
+  var leafM = new THREE.MeshStandardMaterial({map:T.leaf, alphaTest:0.45, side:THREE.DoubleSide, roughness:0.85});
+  var tuftM = new THREE.MeshStandardMaterial({map:T.tuft, alphaTest:0.4, side:THREE.DoubleSide, roughness:1});
+  function blocked(x,z){ var r = Math.sqrt(x*x + z*z); if(r > 19 && r < 40 && z > -20) return true; if(Math.abs(x+16) < 16 && z < -46) return true; return (x > -12.5 && x < 14 && z > -8 && z < 13.6) || (z > 6.6 && z < 13.8) || (z > -62 && z < -58) || z < -61; }
+  var palmSpots = [], roundSpots = [], bambooSpots = [];
+  for(i=0;i<260;i++){ var tx = range(-130, 130), tz = range(-57, 48); if(blocked(tx,tz)) continue; if(Math.abs(tx) < 60 && Math.abs(tz - 15.8) < 2.2) continue; var r = rnd(); if(r < 0.5) palmSpots.push([tx,tz]); else if(r < 0.9 || Math.sqrt(tx*tx+tz*tz) < 50) roundSpots.push([tx,tz]); else bambooSpots.push([tx,tz]); }
+  [[-9,-8.4],[-4,-8.6],[1,-8.8],[6,-8.4],[11,-8.6],[14.4,-3],[14.2,3],[-11.4,-2],[-11.8,3.5],[24,-14],[20,-6],[28,-8],[18,-12]].forEach(function(p,k){ (k%2 ? roundSpots : palmSpots).push(p); });
+  for(i=0;i<46;i++){ var rx = -140 + i*6.2 + range(-1,1); if(rx > -34 && rx < 2) continue; palmSpots.push([rx, -59 + range(-1.2,0.8)]); }
+
+  /* palm trunks: curved tubes */
+  var palms = [], frondGeo = new THREE.PlaneGeometry(0.75, 3.2, 1, 8); frondGeo.translate(0, 1.6, 0);
+  var fp = frondGeo.attributes.position; for(i=0;i<fp.count;i++){ var yy = fp.getY(i); fp.setZ(i, -0.09*yy*yy); } frondGeo.computeVertexNormals();
+  var frondCount = palmSpots.length * 11, frondIM = new THREE.InstancedMesh(frondGeo, frondM, frondCount); frondIM.castShadow = true;
+  var dummy = new THREE.Object3D(), fi = 0, frondBase = [];
+  palmSpots.forEach(function(p){
+    var h = range(4.2, 7), lean = range(-0.6, 0.6), leanZ = range(-0.5, 0.5);
+    var curve = new THREE.CatmullRomCurve3([new THREE.Vector3(0,0,0), new THREE.Vector3(lean*0.3, h*0.4, leanZ*0.3), new THREE.Vector3(lean*0.8, h*0.75, leanZ*0.8), new THREE.Vector3(lean, h, leanZ)]);
+    var tr = new THREE.Mesh(new THREE.TubeGeometry(curve, 10, 0.13, 6, false), barkM); tr.position.set(p[0], 0, p[1]); tr.castShadow = true; scene.add(tr);
+    var top = new THREE.Vector3(p[0]+lean, h, p[1]+leanZ);
+    var nut = new THREE.Mesh(new THREE.SphereGeometry(0.22, 8, 6), mat(0x5C6B2A)); nut.position.copy(top).add(new THREE.Vector3(0,-0.15,0)); scene.add(nut);
+    var base = range(0, 6.28);
+    for(var k=0;k<11;k++){ var yaw = base + k*(Math.PI*2/11) + range(-0.15,0.15), pitch = range(0.85, 1.25);
+      frondBase.push({p:top.clone(), yaw:yaw, pitch:pitch, ph:rnd()*6.28});
+      dummy.position.copy(top); dummy.rotation.set(0,0,0); dummy.rotateY(yaw); dummy.rotateX(pitch); dummy.updateMatrix(); frondIM.setMatrixAt(fi++, dummy.matrix); }
+  });
+  scene.add(frondIM);
+
+  /* round canopy trees: trunk + leaf cards (used far away, or if real models fail to load) */
+  var ci = 0, col = new THREE.Color();
+  function buildRound(spots){
+    if(!spots.length) return;
+    var cardGeo = new THREE.PlaneGeometry(1.5, 1.5), cardsPer = 34, cardIM = new THREE.InstancedMesh(cardGeo, leafM, spots.length * cardsPer); cardIM.castShadow = true; var ci = 0;
+    spots.forEach(function(p){
+      var s = range(0.9, 1.6), th = 1.7*s;
+      var tr = new THREE.Mesh(new THREE.CylinderGeometry(0.14*s, 0.24*s, th + 0.6, 7), barkM); tr.position.set(p[0], th/2, p[1]); tr.castShadow = true; scene.add(tr);
+      var cy = th + 1.1*s, rad = 1.5*s;
+      var core = new THREE.Mesh(new THREE.IcosahedronGeometry(rad*0.78, 1), mat(0x2F4F22)); core.position.set(p[0], cy, p[1]); core.castShadow = true; scene.add(core);
+      var tint = range(0.82, 1.1);
+      for(var k=0;k<cardsPer;k++){
+        var v = new THREE.Vector3(range(-1,1), range(-0.6,1), range(-1,1)).normalize().multiplyScalar(rad*range(0.65,1));
+        dummy.position.set(p[0]+v.x, cy+v.y*0.85, p[1]+v.z); dummy.rotation.set(range(0,3.14), range(0,3.14), range(0,3.14)); dummy.scale.setScalar(s*range(0.8,1.25)); dummy.updateMatrix();
+        cardIM.setMatrixAt(ci, dummy.matrix); col.setRGB(tint*range(0.9,1.05), tint*range(0.92,1.08), tint*range(0.85,1)); cardIM.setColorAt(ci, col); ci++;
+      }
+    });
+    scene.add(cardIM);
+  }
+  var nearRound = roundSpots.filter(function(p){ return Math.sqrt(p[0]*p[0]+p[1]*p[1]) < 75; });
+  var farRound = roundSpots.filter(function(p){ return Math.sqrt(p[0]*p[0]+p[1]*p[1]) >= 75; });
+  buildRound(farRound);
+
+  /* bamboo clumps */
+  var bambooM = mat(0x8FA34A, {roughness:0.6}), bambooLeaf = new THREE.MeshStandardMaterial({map:T.leaf, alphaTest:0.45, side:THREE.DoubleSide, color:0xB8D08A});
+  bambooSpots.forEach(function(p){
+    for(var k=0;k<9;k++){ var h = range(4,7), b = new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.07,h,5), bambooM); var ox = range(-0.6,0.6), oz = range(-0.6,0.6);
+      b.position.set(p[0]+ox, h/2, p[1]+oz); b.rotation.set(ox*0.25, 0, -oz*0.25); b.castShadow = true; scene.add(b);
+      var lf = new THREE.Mesh(new THREE.PlaneGeometry(1.4,1.4), bambooLeaf); lf.position.set(p[0]+ox*1.6, h-0.2, p[1]+oz*1.6); lf.rotation.set(rnd()*3, rnd()*3, 0); lf.castShadow = true; scene.add(lf); }
+  });
+
+  /* grass tufts and shrubs */
+  var tuftGeo = new THREE.PlaneGeometry(0.9, 0.6); tuftGeo.translate(0, 0.3, 0);
+  var tuftN = small ? 900 : 1600, tuftIM = new THREE.InstancedMesh(tuftGeo, tuftM, tuftN), ti = 0;
+  while(ti < tuftN){
+    var gx = range(-70, 70), gz = range(-14, 30);
+    if((gx > -8 && gx < 12.6 && gz > -6.7 && gz < 6.5) || (gz > 7.6 && gz < 11.4)) continue;
+    dummy.position.set(gx, 0, gz); dummy.rotation.set(0, rnd()*3.14, 0); dummy.scale.setScalar(range(0.5, 1.0)); dummy.updateMatrix(); tuftIM.setMatrixAt(ti++, dummy.matrix);
+  }
+  scene.add(tuftIM);
+
+
+  /* ---------- real photo-scanned assets (Poly Haven, CC0) ---------- */
+  var loadNote = document.getElementById('loadNote');
+  function placeVariant(parts, mats4){
+    parts.forEach(function(pt){
+      var im = new THREE.InstancedMesh(pt.geo, pt.mat, mats4.length);
+      mats4.forEach(function(m, k){ var mm = new THREE.Matrix4().multiplyMatrices(m, pt.m); im.setMatrixAt(k, mm); });
+      im.castShadow = true; im.receiveShadow = true; im.frustumCulled = false; scene.add(im);
+    });
+  }
+  function variantsOf(gscene, split){
+    gscene.updateMatrixWorld(true);
+    var roots = split ? gscene.children.slice() : [gscene];
+    if(split && roots.length === 1 && roots[0].children.length > 1 && !roots[0].isMesh){ roots = roots[0].children.slice(); }
+    return roots.map(function(root){
+      var bb = new THREE.Box3().setFromObject(root), c = bb.getCenter(new THREE.Vector3());
+      var off = new THREE.Matrix4().makeTranslation(-c.x, -bb.min.y, -c.z), parts = [];
+      root.traverse(function(o){ if(o.isMesh){
+        var m = o.material; if(m.map){ m.map.anisotropy = MAXANI; }
+        if(m.transparent || m.alphaTest > 0){ m.alphaTest = Math.max(m.alphaTest, 0.45); m.transparent = false; }
+        m.side = THREE.DoubleSide; m.envMapIntensity = 0.7;
+        parts.push({geo:o.geometry, mat:m, m:new THREE.Matrix4().multiplyMatrices(off, o.matrixWorld)}); } });
+      return {parts:parts, h: bb.max.y - bb.min.y};
+    });
+  }
+  function xf(x, z, s, rot){ return new THREE.Matrix4().compose(new THREE.Vector3(x, 0, z), new THREE.Quaternion().setFromEuler(new THREE.Euler(0, rot, 0)), new THREE.Vector3(s, s, s)); }
+  function getBuffer(url, ok, bad){
+    if(window.NAGARAYAN_EMBED){
+      var key = url.split('/').pop().split('.')[0];
+      function decode(){ try{ var b64 = window.__NA[key], bin = atob(b64), n = bin.length, u8 = new Uint8Array(n); for(var i=0;i<n;i++) u8[i] = bin.charCodeAt(i); delete window.__NA[key]; ok(u8.buffer); }catch(e){ bad(e); } }
+      window.__NA = window.__NA || {};
+      if(window.__NA[key]) return decode();
+      var sc = document.createElement('script'); sc.src = 'assets/' + key + '.js'; sc.onload = decode; sc.onerror = bad; document.head.appendChild(sc);
+    } else {
+      var fl = new THREE.FileLoader(); fl.setResponseType('arraybuffer'); fl.load(url, ok, undefined, bad);
+    }
+  }
+  function loadGLB(gl, url, ok, bad){ getBuffer(url, function(buf){ gl.parse(buf, '', ok, bad); }, bad); }
+  function loadReal(){
+    if(!THREE.GLTFLoader){ buildRound(nearRound); if(loadNote) loadNote.hidden = true; return; }
+    var gl = new THREE.GLTFLoader(), done = 0, failed = false, need = 5;
+    function fin(){ if(++done === need && loadNote) loadNote.hidden = true; }
+    function err(){ if(!failed){ failed = true; buildRound(nearRound); } fin(); }
+    /* main trees: two photo-scanned species */
+    var treeLists = [[], []];
+    nearRound.forEach(function(p, k){ treeLists[k % 2].push(p); });
+    [[-15,-9.5],[3,-9.6],[13.6,-9.2],[15.6,1.5],[-13.5,0.8],[-17,8.8],[17.5,6.8]].forEach(function(p,k){ treeLists[k % 2].push(p); });
+    ['assets/tree_a.glb','assets/tree_b.glb'].forEach(function(url, ti){
+      loadGLB(gl, url, function(g){
+        var v = variantsOf(g.scene, false)[0], target = ti === 0 ? 3.6 : 3.1;
+        var list = treeLists[ti].map(function(p){ var s = target / v.h * range(0.8, 1.25); return xf(p[0], p[1], s, rnd()*6.28); });
+        placeVariant(v.parts, list); fin();
+      }, err);
+    });
+    /* small tropical trees around village houses */
+    loadGLB(gl, 'assets/pachira.glb', function(g){
+      var vs = variantsOf(g.scene, true), lists = vs.map(function(){ return []; });
+      housesSpots.forEach(function(h, k){ var a = rnd()*6.28; lists[k % vs.length].push(xf(h[0] + Math.cos(a)*3.2, h[1] + Math.sin(a)*3.2 - (h[1] > 12 ? -1.5 : 0), 1.35 / vs[k % vs.length].h * range(0.8, 1.3), rnd()*6.28)); });
+      [[-10.6,-5.5],[13.3,-5.8],[-10.8,5.6]].forEach(function(p, k){ lists[k % vs.length].push(xf(p[0], p[1], 1.4 / vs[k % vs.length].h, rnd()*6.28)); });
+      vs.forEach(function(v, k){ if(lists[k].length) placeVariant(v.parts, lists[k]); }); fin();
+    }, function(){ fin(); });
+    /* shrubs along fences, the roadside and around houses */
+    var shrubSpots = [];
+    for(var x=-7.4; x<12.2; x+=1.3){ shrubSpots.push([x + range(-0.3,0.3), -7.3 + range(-0.3,0.3)]); }
+    for(var z=-6.2; z<5.6; z+=1.4){ shrubSpots.push([-8.6 + range(-0.3,0.3), z]); shrubSpots.push([13.2 + range(-0.3,0.3), z]); }
+    for(var i=0;i<90;i++){ var sx = range(-60, 60), sz = range(-14, 30); if((sx > -9 && sx < 13.6 && sz > -7.6 && sz < 6.8) || (sz > 6.6 && sz < 12.4)) continue; shrubSpots.push([sx, sz]); }
+    ['assets/shrub_a.glb','assets/shrub_b.glb'].forEach(function(url, si){
+      loadGLB(gl, url, function(g){
+        var vs = variantsOf(g.scene, true), lists = vs.map(function(){ return []; });
+        shrubSpots.forEach(function(p, k){ if(k % 2 !== si) return; var vi = k % vs.length; lists[vi].push(xf(p[0], p[1], (si ? 0.55 : 0.45) / Math.max(vs[vi].h, 0.2) * range(0.7, 1.3), rnd()*6.28)); });
+        vs.forEach(function(v, k){ if(lists[k].length) placeVariant(v.parts, lists[k]); }); fin();
+      }, function(){ fin(); });
+    });
+    /* real sky panorama for the day view */
+    if(THREE.RGBELoader){
+      getBuffer('assets/sky.hdr', function(buf){
+        var td = new THREE.RGBELoader().setDataType(THREE.FloatType).parse(buf);
+        var hdr = new THREE.DataTexture(td.data, td.width, td.height, td.format || THREE.RGBAFormat, td.type || THREE.FloatType);
+        hdr.encoding = THREE.LinearEncoding; hdr.minFilter = hdr.magFilter = THREE.LinearFilter; hdr.generateMipmaps = false; hdr.flipY = true; hdr.needsUpdate = true;
+        var st = (hdr.format === THREE.RGBFormat) ? 3 : 4, W = hdr.image.width, H = hdr.image.height, d = hdr.image.data, best = -1, bi = 0, hr = 0, hg = 0, hb = 0, hn = 0;
+        for(var y=0; y<H*0.5; y+=2){ for(var x=0; x<W; x+=2){ var i4 = (y*W + x)*st, l = d[i4] + d[i4+1] + d[i4+2]; if(l > best){ best = l; bi = y*W + x; } } }
+        var yH = Math.floor(H*0.49); for(x=0; x<W; x+=8){ var j = (yH*W + x)*st; hr += d[j]; hg += d[j+1]; hb += d[j+2]; hn++; }
+        var u = (bi % W) / W, v = Math.floor(bi / W) / H, phi = v*Math.PI, theta = (u - 0.5)*2*Math.PI;
+        var az = (u - 0.5)*2*Math.PI, el = Math.max(0.35, (0.5 - v)*Math.PI);
+        realSky = {tex:hdr, dir:new THREE.Vector3(Math.cos(el)*Math.cos(az), Math.sin(el), Math.cos(el)*Math.sin(az)).normalize(), horizon:new THREE.Color(Math.min(1,hr/hn), Math.min(1,hg/hn), Math.min(1,hb/hn))};
+        hdr.mapping = THREE.EquirectangularReflectionMapping;
+        realSky.env = pmrem.fromEquirectangular(hdr).texture;
+        if(mode === 'day') setTime('day');
+      }, function(){});
+    }
+  }
+  var realSky = null;
+
+  /* ---------- water: village pond and the river ---------- */
+  var normals = waterNormals(), water = null, pondWater = null;
+  if(THREE.Water){
+    water = new THREE.Water(new THREE.PlaneGeometry(900, 70), {textureWidth: small ? 256 : 512, textureHeight: small ? 256 : 512, waterNormals: normals, sunDirection: new THREE.Vector3(), sunColor: 0xFFF2DD, waterColor: 0x1E5566, distortionScale: 2.6, fog: true});
+    water.rotation.x = -Math.PI/2; water.position.set(0, 0.1, -96); scene.add(water);
+    pondWater = new THREE.Water(new THREE.CircleGeometry(4.6, 48), {textureWidth: 256, textureHeight: 256, waterNormals: normals, sunDirection: new THREE.Vector3(), sunColor: 0xFFF2DD, waterColor: 0x2B5B4A, distortionScale: 1.2, fog: true});
+    pondWater.rotation.x = -Math.PI/2; pondWater.position.set(24, 0.1, -9); scene.add(pondWater);
+  }
+  var bank = flat(900, 5, tmat(T.dirt, {color:0xE8DCC0}), 0, -60, 0.05);
+  var ghat = new THREE.Group(); for(var st=0; st<4; st++){ var step = new THREE.Mesh(new THREE.BoxGeometry(6, 0.18, 0.6), mat(0xD8D0C0)); step.position.set(-22, 0.09 + (3-st)*0.16, -58.6 - st*0.6); step.receiveShadow = step.castShadow = true; ghat.add(step); } scene.add(ghat);
+
+  /* country boats */
+  var boats = [];
+  function boat(x, z, sp, sail){
+    var g = new THREE.Group();
+    var hs = new THREE.Shape(); hs.moveTo(-1.6,0.35); hs.quadraticCurveTo(-1.4,-0.05,-0.8,-0.1); hs.lineTo(0.8,-0.1); hs.quadraticCurveTo(1.4,-0.05,1.6,0.35); hs.lineTo(-1.6,0.35);
+    var hull = new THREE.Mesh(new THREE.ExtrudeGeometry(hs, {depth:0.8, bevelEnabled:false}), mat(0x5A3B22)); hull.position.z = -0.4; hull.castShadow = true; g.add(hull);
+    var cover = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 1.2, 12, 1, true, 0, Math.PI), tmat(T.thatch)); cover.rotation.z = Math.PI/2; cover.position.y = 0.35; g.add(cover);
+    if(sail){ var ss = new THREE.Shape(); ss.moveTo(0,0); ss.lineTo(0,2.6); ss.lineTo(1.4,0.2); ss.lineTo(0,0);
+      var sl = new THREE.Mesh(new THREE.ShapeGeometry(ss), mat(0xEFE3C6, {side:THREE.DoubleSide})); sl.position.set(0.3,0.4,0); g.add(sl);
+      var mast = new THREE.Mesh(new THREE.CylinderGeometry(0.03,0.03,2.8,5), mat(0x5A3B22)); mast.position.set(0.3,1.7,0); g.add(mast); }
+    g.position.set(x, 0.12, z); g.userData.sp = sp; scene.add(g); boats.push(g);
+  }
+  boat(-30, -72, 0.8, true); boat(25, -82, -0.5, false); boat(70, -98, 0.45, true); boat(-80, -88, 0.6, false);
+
+  /* clouds: soft sprite puffs */
+  var puff = (function(){ var c = cnv(128,128), g = c.getContext('2d'), gr = g.createRadialGradient(64,64,0,64,64,64); gr.addColorStop(0,'rgba(255,255,255,0.95)'); gr.addColorStop(0.5,'rgba(255,255,255,0.55)'); gr.addColorStop(1,'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0,0,128,128); var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; return t; })();
+  var clouds = [], cloudMat = new THREE.SpriteMaterial({map:puff, transparent:true, depthWrite:false, fog:false, opacity:0.9});
+  for(i=0;i<14;i++){ var cg = new THREE.Group(); for(var k=0;k<7;k++){ var sp = new THREE.Sprite(cloudMat); var sz = range(14, 26); sp.scale.set(sz, sz*0.55, 1); sp.position.set(k*7 - 20 + range(-3,3), range(-2,3), range(-4,4)); cg.add(sp); }
+    cg.position.set(range(-260, 260), range(55, 85), range(-280, 60)); scene.add(cg); clouds.push(cg); }
+
+  /* birds over the river */
+  var birds = [], birdM = new THREE.MeshBasicMaterial({color:0x2B2B2B, side:THREE.DoubleSide});
+  for(i=0;i<9;i++){ var bg = new THREE.Group(); [-1,1].forEach(function(s){ var wg = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.18), birdM); wg.position.x = s*0.3; wg.userData.s = s; bg.add(wg); });
+    bg.userData = {r: range(18, 34), a: range(0, 6.28), h: range(12, 20), sp: range(0.12, 0.2), ph: rnd()*6}; scene.add(bg); birds.push(bg); }
+
+  /* ---------- vehicles ---------- */
+  function vehicle(color, x, z, speed, moving, kind){
+    var g = new THREE.Group(), paint = new THREE.MeshPhysicalMaterial({color:color, metalness:0.6, roughness:0.32, clearcoat:1, clearcoatRoughness:0.1}); paint.color.convertSRGBToLinear();
+    var tyre = mat(0x1A1A1A, {roughness:0.9}), win = new THREE.MeshPhysicalMaterial({color:0x1C2733, metalness:0.2, roughness:0.05, clearcoat:1});
+    var L, H, W = 0.8;
+    if(kind === 'bus' || kind === 'truck'){
+      L = kind === 'bus' ? 4.2 : 3.6; H = 1.4; W = 0.95;
+      var bd = new THREE.Mesh(new THREE.BoxGeometry(L, H, W), paint); bd.position.y = H/2 + 0.32; bd.castShadow = true; g.add(bd);
+      if(kind === 'bus'){ var wl = new THREE.Mesh(new THREE.BoxGeometry(L*0.92, 0.4, W+0.02), win); wl.position.y = H*0.75 + 0.32; g.add(wl); }
+      else { var cab = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.0, W), mat(0xD9D4C8)); cab.position.set(L/2+0.45, 0.82, 0); cab.castShadow = true; g.add(cab); }
+    } else {
+      L = 1.7; H = 0.42;
+      var prof = new THREE.Shape(); prof.moveTo(-0.85,0); prof.lineTo(0.85,0); prof.lineTo(0.88,0.3); prof.lineTo(0.5,0.38); prof.lineTo(0.25,0.68); prof.lineTo(-0.45,0.68); prof.lineTo(-0.75,0.4); prof.lineTo(-0.88,0.32); prof.lineTo(-0.85,0);
+      var bodyGeo = new THREE.ExtrudeGeometry(prof, {depth:0.76, bevelEnabled:true, bevelThickness:0.04, bevelSize:0.04, bevelSegments:2}); bodyGeo.translate(0,0,-0.38);
+      var bd2 = new THREE.Mesh(bodyGeo, paint); bd2.position.y = 0.16; bd2.castShadow = true; g.add(bd2);
+      var gl = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.24, 0.8), win); gl.position.set(-0.08, 0.7, 0); g.add(gl);
+    }
+    var wr = kind === 'bus' || kind === 'truck' ? 0.3 : 0.17, wx = (L/2)*0.66;
+    [[wx, W/2],[wx,-W/2],[-wx, W/2],[-wx,-W/2]].forEach(function(p){ var t = new THREE.Mesh(new THREE.CylinderGeometry(wr, wr, 0.14, 14), tyre); t.rotation.x = Math.PI/2; t.position.set(p[0], wr, p[1]); g.add(t); });
+    var lm = new THREE.MeshStandardMaterial({color:0xFFF6D8, emissive:0x000000}); lightsM.push(lm);
+    var front = kind === 'truck' ? L/2 + 0.9 : L/2 + 0.02;
+    var hl = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.1, W*0.8), lm); hl.position.set(front, kind === 'bus' || kind === 'truck' ? 0.6 : 0.42, 0); g.add(hl);
+    g.position.set(x, 0.07, z); if(speed < 0) g.rotation.y = Math.PI;
+    scene.add(g); if(moving) traffic.push({g:g, v:speed}); return g;
+  }
+  [0xB23A3A, 0xF2F2F0, 0x2D5DA8].forEach(function(cl,k){ vehicle(cl, -6.1 + k*2.2, 6.4, 0, false, 'car'); });
+  [0xE8E8E8, 0x8A1F1F].forEach(function(cl,k){ var v = vehicle(cl, -4.8 + k*3.2, 3.6, 0, false, 'car'); v.rotation.y = 0.5; });
+  var tc = [0xB23A3A,0xF2F2F0,0x2D5DA8,0xE0B43A,0x2E2E2E,0x6E8B74,0xE07A2E,0xC0C4C8];
+  for(i=0;i<14;i++){ var dir = i%2 ? 1 : -1, kind = i%7 === 3 ? 'bus' : i%5 === 4 ? 'truck' : 'car';
+    vehicle(kind === 'bus' ? 0x2F6E4F : kind === 'truck' ? 0xC9762E : tc[i%tc.length], -160 + i*23, dir > 0 ? 8.6 : 10.4, dir*(kind === 'car' ? range(10,15) : 7), true, kind); }
+
+  /* ---------- labels ---------- */
+  function label(text, x, y, z, w){
+    var c = cnv(512,128), g = c.getContext('2d');
+    g.fillStyle = 'rgba(13,22,40,0.85)'; var r = 28; g.beginPath(); g.moveTo(r,8); g.arcTo(504,8,504,120,r); g.arcTo(504,120,8,120,r); g.arcTo(8,120,8,8,r); g.arcTo(8,8,504,8,r); g.fill();
+    g.fillStyle = '#F6EFE0'; g.font = '700 46px Manrope, Arial, sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(text, 256, 66);
+    var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding;
+    var s = new THREE.Sprite(new THREE.SpriteMaterial({map:t, depthTest:false, transparent:true, fog:false, toneMapped:false})); s.scale.set(w||4, (w||4)/4, 1); s.position.set(x,y,z); s.renderOrder = 10; scene.add(s); return s;
+  }
+  var labels = [label('Car showroom', -3, 5.6, 3.4), label('Restaurant', 5.2, 4.2, 3.8, 3.4), label('Tea stall', 7.6, 2.7, 5.4, 2.8), label('Your 1 bigha', 10.1, 1.5, 0, 3.2), label('State Highway 15', -20, 1.4, 9.5, 5), label('River', -30, 3, -78, 3)];
+  var p2label = label('Phase 2 (planned)', -2, 7.8, -3, 4.6); labels.push(p2label);
+  var labelsOn = true;
+
+  /* ---------- picking and info ---------- */
+  var INFO = {
+    showroom:{k:'PHASE 1 · HIGHWAY FRONT', t:'Car showroom', d:'About 3,000 sq ft on the ground floor behind a full glass front facing SH15, with a first floor suited to a bank or office. Built to the dealer’s specification.', s:'Car showroom'},
+    restaurant:{k:'PHASE 1 · FOOD', t:'Restaurant & café', d:'About 1,200–1,500 sq ft with 30 ft of highway frontage, a Bengal chala-style roof and outdoor seating for travellers.', s:'Restaurant / café'},
+    tea:{k:'PHASE 1 · KIOSK', t:'Tea stall', d:'A thatched kiosk at the road front for tea, snacks and quick stops.', s:'Tea stall / kiosk'},
+    phase2:{k:'PHASE 2 · PLANNED', t:'Commercial building', d:'A multi-storey block behind the frontage for retail, a bank, pharmacy, clinics and a banquet hall above.', s:'Phase 2 space'},
+    owned:{k:'ADJOINING LAND', t:'Your next 1 bigha', d:'Land next to the estate held by Nagarayan for parking, access and future expansion.', s:null},
+    brand:{k:'NAGARAYAN DEVELOPERS', t:'Nagarayan Estate', d:'About 4 bigha on State Highway 15 at Srikol, Shyampur, Howrah, developed in phases.', s:null}
+  };
+  var ray = new THREE.Raycaster(), ptr = new THREE.Vector2(), hoverKey = null, down = null;
+  function setPtr(e){ var r = canvas.getBoundingClientRect(); ptr.x = ((e.clientX - r.left)/r.width)*2 - 1; ptr.y = -((e.clientY - r.top)/r.height)*2 + 1; }
+  function hit(){ ray.setFromCamera(ptr, camera); var hs = ray.intersectObjects(pick.filter(function(m){ return m !== p2mesh || p2.visible; }), false); return hs.length ? hs[0].object.userData.key : null; }
+  var glowMats = {};
+  pick.forEach(function(m){ var k = m.userData.key; if(m.material && m.material.emissive && m.material !== glass){ (glowMats[k] = glowMats[k] || []).indexOf(m.material) < 0 && glowMats[k].push(m.material); } });
+  function glow(k, on){ (glowMats[k]||[]).forEach(function(mm){ mm.emissive.setHex(on ? 0x2A1F06 : 0x000000); }); }
+  function show(k){
+    var d = INFO[k]; if(!d) return;
+    document.getElementById('i3k').textContent = d.k; document.getElementById('i3t').textContent = d.t; document.getElementById('i3d').textContent = d.d;
+    var b = document.getElementById('i3btn'); b.hidden = !d.s; b.dataset.space = d.s || '';
+  }
+  canvas.addEventListener('pointermove', function(e){
+    if(e.pointerType !== 'mouse') return;
+    setPtr(e); var k = hit();
+    if(k !== hoverKey){ if(hoverKey) glow(hoverKey,false); hoverKey = k; if(k) glow(k,true); canvas.style.cursor = k ? 'pointer' : ''; }
+  });
+  canvas.addEventListener('pointerdown', function(e){ down = {x:e.clientX, y:e.clientY}; });
+  canvas.addEventListener('pointerup', function(e){
+    if(!down || Math.abs(e.clientX-down.x) + Math.abs(e.clientY-down.y) > 6) return;
+    setPtr(e); var k = hit(); if(k){ show(k); setSpin(false); }
+  });
+  document.getElementById('i3btn').addEventListener('click', function(){
+    var s = this.dataset.space; var r = s && document.querySelector('input[name="space"][value="'+s+'"]');
+    if(r){ r.checked = true; r.dispatchEvent(new Event('change', {bubbles:true})); }
+  });
+
+  /* ---------- camera views ---------- */
+  var VIEWS = { road:{p:[17,6.5,27], t:[0,1.4,1]}, bird:{p:[4,60,30], t:[0,0,-8]}, river:{p:[-16,4.5,-66], t:[0,3,0]}, street:{p:[22,1.7,10.4], t:[0,1.6,6]} };
+  var fly = null;
+  function goView(name){
+    var v = VIEWS[name]; if(!v) return;
+    fly = {p0:camera.position.clone(), t0:controls.target.clone(), p1:new THREE.Vector3().fromArray(v.p), t1:new THREE.Vector3().fromArray(v.t), s:performance.now(), d: reduce ? 1 : 1600};
+    document.querySelectorAll('[data-view]').forEach(function(b){ b.classList.toggle('on', b.dataset.view === name); });
+  }
+  document.querySelectorAll('[data-view]').forEach(function(b){ b.addEventListener('click', function(){ goView(b.dataset.view); }); });
+
+  var spinBtn = document.getElementById('spinBtn');
+  function setSpin(on){ controls.autoRotate = on; spinBtn.setAttribute('aria-pressed', on); spinBtn.textContent = on ? 'Auto-rotate on' : 'Auto-rotate off'; }
+  setSpin(controls.autoRotate);
+  spinBtn.addEventListener('click', function(){ setSpin(!controls.autoRotate); });
+  controls.addEventListener('start', function(){ fly = null; });
+
+  var p2Btn = document.getElementById('p2Btn');
+  p2Btn.addEventListener('click', function(){ p2.visible = !p2.visible; p2label.visible = p2.visible && labelsOn; p2Btn.setAttribute('aria-pressed', p2.visible); p2Btn.textContent = p2.visible ? 'Phase 2 shown' : 'Phase 2 hidden'; });
+  var lblBtn = document.getElementById('lblBtn');
+  if(lblBtn){ lblBtn.addEventListener('click', function(){ labelsOn = !labelsOn; labels.forEach(function(l){ l.visible = labelsOn && (l !== p2label || p2.visible); }); lblBtn.setAttribute('aria-pressed', labelsOn); lblBtn.textContent = labelsOn ? 'Labels on' : 'Labels off'; }); }
+
+  /* ---------- time of day ---------- */
+  var mode = 'day', todBtn = document.getElementById('todBtn');
+  function setTime(m){
+    mode = m === true ? 'dusk' : m === false ? 'day' : m;
+    var d = mode === 'dusk';
+    su.turbidity.value = d ? 9 : 6; su.rayleigh.value = d ? 2.6 : 1.6; su.mieCoefficient.value = d ? 0.008 : 0.005;
+    setSun(d ? 2.5 : 38, d ? 250 : 155);
+    if(!d && realSky){ scene.background = realSky.tex; scene.environment = realSky.env; sky.visible = false; sun.position.copy(realSky.dir).multiplyScalar(120); if(water) water.material.uniforms.sunDirection.value.copy(realSky.dir); }
+    else { scene.background = null; sky.visible = true; }
+    sun.color.setHex(d ? 0xFF9A55 : 0xFFF2DD); sun.intensity = d ? 1.2 : 2.1;
+    hemi.intensity = d ? 0.25 : 0.55; hemi.color.setHex(d ? 0x8C8FC4 : 0xDDEBFF);
+    renderer.toneMappingExposure = d ? 0.55 : 0.62;
+    scene.fog.color.setHex(d ? 0x9D8C8E : 0xC9D8DF).convertSRGBToLinear(); if(!d && realSky){ scene.fog.color.copy(realSky.horizon); } scene.fog.density = d ? 0.0055 : 0.0038;
+    glass.emissive.setHex(d ? 0xFFB54D : 0x000000); glass.emissiveIntensity = d ? 0.9 : 0;
+    lightsM.forEach(function(mm){ mm.emissive.setHex(d ? 0xFFE7A0 : 0x000000); mm.emissiveIntensity = d ? 2 : 0; });
+    lampHead.emissive.setHex(d ? 0xFFD28A : 0x000000); lampHead.emissiveIntensity = d ? 3 : 0;
+    lampLights.forEach(function(l){ l.intensity = d ? 1.6 : 0; });
+    cloudMat.color.setHex(d ? 0xF2B48C : 0xFFFFFF);
+    if(water){ water.material.uniforms.waterColor.value.setHex(d ? 0x24384F : 0x1E5566); water.material.uniforms.sunColor.value.setHex(d ? 0xFF9A55 : 0xFFF2DD); }
+    if(pondWater){ pondWater.material.uniforms.sunColor.value.setHex(d ? 0xFF9A55 : 0xFFF2DD); pondWater.material.uniforms.sunDirection.value.copy(sunDir); }
+    todBtn.textContent = d ? 'Switch to day' : 'Switch to dusk';
+  }
+  todBtn.addEventListener('click', function(){ setTime(mode === 'day' ? 'dusk' : 'day'); });
+  setTime('day');
+
+  /* ---------- size and loop ---------- */
+  function resize(){ var w = stage.clientWidth, h = stage.clientHeight; if(!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+  if(window.ResizeObserver){ new ResizeObserver(resize).observe(stage); } else { window.addEventListener('resize', resize); }
+  resize();
+
+  var visible = true;
+  if(window.IntersectionObserver){ new IntersectionObserver(function(es){ visible = es[0].isIntersecting; if(visible) loop(); }, {rootMargin:'120px'}).observe(stage); }
+
+  var last = performance.now(), running = false, frame = 0;
+  function ease(x){ return x < 0.5 ? 4*x*x*x : 1 - Math.pow(-2*x+2, 3)/2; }
+  function tick(now){
+    var dt = Math.min(0.05, (now - last)/1000); last = now; var t = now/1000;
+    if(fly){ var a = Math.min(1, (now - fly.s)/fly.d), e = ease(a); camera.position.lerpVectors(fly.p0, fly.p1, e); controls.target.lerpVectors(fly.t0, fly.t1, e); if(a >= 1) fly = null; }
+    controls.update();
+    traffic.forEach(function(c){ c.g.position.x += c.v*dt; if(c.g.position.x > 180) c.g.position.x = -180; if(c.g.position.x < -180) c.g.position.x = 180; });
+    boats.forEach(function(b){ b.position.x += b.userData.sp*dt; if(b.position.x > 170) b.position.x = -170; if(b.position.x < -170) b.position.x = 170; b.rotation.z = Math.sin(t*1.4 + b.position.x)*0.04; b.position.y = 0.12 + Math.sin(t*1.2 + b.position.x*0.3)*0.05; });
+    clouds.forEach(function(c){ c.position.x += 0.9*dt; if(c.position.x > 300) c.position.x = -300; });
+    birds.forEach(function(b){ var u = b.userData; u.a += u.sp*dt; b.position.set(Math.cos(u.a)*u.r - 10, u.h + Math.sin(t + u.ph)*0.6, Math.sin(u.a)*u.r - 40); b.rotation.y = -u.a; var f = Math.sin(t*9 + u.ph)*0.6; b.children.forEach(function(w){ w.rotation.x = 0; w.rotation.z = w.userData.s * f; }); });
+    if(water){ water.material.uniforms.time.value += dt*0.6; }
+    if(pondWater){ pondWater.material.uniforms.time.value += dt*0.3; }
+    if(!reduce && frame % 2 === 0){
+      for(var i=0; i<frondBase.length; i++){ var fb = frondBase[i]; dummy.position.copy(fb.p); dummy.rotation.set(0,0,0); dummy.scale.set(1,1,1); dummy.rotateY(fb.yaw + Math.sin(t*0.9 + fb.ph)*0.04); dummy.rotateX(fb.pitch + Math.sin(t*1.3 + fb.ph)*0.05); dummy.updateMatrix(); frondIM.setMatrixAt(i, dummy.matrix); }
+      frondIM.instanceMatrix.needsUpdate = true;
+    }
+    frame++;
+    renderer.render(scene, camera);
+  }
+  function loop(){ if(running) return; running = true; last = performance.now(); (function step(now){ if(!visible){ running = false; return; } tick(now || performance.now()); requestAnimationFrame(step); })(); }
+  loop();
+  setTimeout(loadReal, 300);
+  window.__n3d = {show:show, setTime:setTime, goView:goView};
+})();
+
+</script>
+<script>
+(function(){
+  var WA = '919007995554';
+
+  /* Interactive site plan */
+  var Z = {
+    showroom:{k:'PHASE 1 · HIGHWAY FRONT',t:'Car showroom',d:'The widest highway frontage on the site, planned for a car or two-wheeler dealer.',l:[['Size','~3,000 sq ft'],['Floors','Ground + first'],['Lease','9–15 years'],['Option','Built-to-suit or land lease']],s:'Car showroom'},
+    restaurant:{k:'PHASE 1 · FOOD',t:'Restaurant & café',d:'A sit-down restaurant facing SH15, drawing showroom visitors and highway travellers.',l:[['Size','~1,200–1,500 sq ft'],['Frontage','30 ft on SH15'],['Lease','Flexible'],['Suits','Family restaurant, dhaba, café']],s:'Restaurant / café'},
+    tea:{k:'PHASE 1 · KIOSK',t:'Tea stall',d:'A small roadside kiosk at the front of the site for tea, snacks and quick stops.',l:[['Size','Kiosk'],['Position','Road front'],['Lease','Short or long']],s:'Tea stall / kiosk'},
+    drive:{k:'ACCESS',t:'Entry & driveway',d:'A shared entry from SH15 serving the showroom, restaurant and the land behind.',l:[['Use','Vehicle and visitor access'],['Serves','All Phase 1 spaces']],s:null},
+    phase2:{k:'PHASE 2 · PLANNED',t:'Future development',d:'Land behind the frontage reserved for a larger commercial building.',l:[['Ideas','Retail, bank, pharmacy, clinics'],['Upper floor','Banquet hall'],['Status','Early enquiries welcome']],s:'Phase 2 space'}
+  };
+  var zones = document.querySelectorAll('.zone');
+  var current = 'showroom';
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function pick(id){
+    var z = Z[id]; if(!z) return; current = id;
+    zones.forEach(function(g){g.classList.toggle('on', g.getAttribute('data-z')===id);});
+    document.getElementById('ppK').textContent = z.k;
+    document.getElementById('ppT').textContent = z.t;
+    document.getElementById('ppD').textContent = z.d;
+    document.getElementById('ppL').innerHTML = z.l.map(function(r){return '<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>';}).join('');
+    var b = document.getElementById('ppBtn');
+    b.style.display = z.s ? '' : 'none';
+  }
+  zones.forEach(function(g){
+    g.addEventListener('click', function(){pick(g.getAttribute('data-z'));});
+    g.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(g.getAttribute('data-z'));} });
+  });
+  document.getElementById('ppBtn').addEventListener('click', function(){
+    var s = Z[current].s; if(!s) return;
+    var r = document.querySelector('input[name="space"][value="'+s+'"]'); if(r){r.checked=true; build();}
+    document.getElementById('enquire').scrollIntoView({behavior:'smooth'});
+  });
+  pick('showroom');
+
+  /* Phase tabs */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.ph-tabs [role=tab]'));
+  function showTab(t){
+    tabs.forEach(function(x){
+      var on = x===t; x.setAttribute('aria-selected', on); x.tabIndex = on?0:-1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click', function(){showTab(t);});
+    t.addEventListener('keydown', function(e){
+      var n = e.key==='ArrowRight'||e.key==='ArrowDown' ? 1 : e.key==='ArrowLeft'||e.key==='ArrowUp' ? -1 : 0;
+      if(n){e.preventDefault(); var nt = tabs[(i+n+tabs.length)%tabs.length]; showTab(nt); nt.focus();}
+    });
+  });
+
+  /* Enquiry builder */
+  var f = document.getElementById('enq');
+  var lease = document.getElementById('lease'), leaseOut = document.getElementById('leaseOut');
+  function val(n){var c=f.querySelector('input[name="'+n+'"]:checked');return c?c.value:'';}
+  function build(){
+    var y = lease.value; leaseOut.textContent = y + (y==='1'?' year':' years');
+    var name = document.getElementById('name').value.trim();
+    var biz = document.getElementById('biz').value.trim();
+    var msg = 'Hello Nagarayan Developers,\n' +
+      'I am interested in the ' + val('space') + ' at Nagarayan Estate, SH15.\n' +
+      'Arrangement: ' + val('mode') + '\n' +
+      'Lease length: ' + leaseOut.textContent + '\n' +
+      'Planned opening: ' + document.getElementById('when').value + '\n' +
+      (name ? 'Name: ' + name + '\n' : '') +
+      (biz ? 'Business: ' + biz + '\n' : '') +
+      'Please share details and a time for a site visit.';
+    document.getElementById('msgPreview').textContent = msg;
+    document.getElementById('waSend').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+    document.getElementById('mailSend').href = 'mailto:developersnagarayan@gmail.com?subject=' + encodeURIComponent('Enquiry: ' + val('space') + ' at Nagarayan Estate') + '&body=' + encodeURIComponent(msg);
+    return msg;
+  }
+  f.addEventListener('input', build);
+  f.addEventListener('change', build);
+  f.addEventListener('submit', function(e){e.preventDefault();});
+  document.getElementById('copyMsg').addEventListener('click', function(){
+    var out = document.getElementById('copied');
+    try{
+      navigator.clipboard.writeText(build()).then(function(){out.textContent='Copied';},function(){out.textContent='Copy blocked: select the message and copy it';});
+    }catch(err){out.textContent='Copy blocked: select the message and copy it';}
+  });
+  build();
+})();
+</script>
+<script>
+/* Hut -> chala -> tower evolution loop */
+(function(){
+  var evo = document.getElementById('evo'); if(!evo) return;
+  var steps = document.querySelectorAll('#story .step'), btn = document.getElementById('evoPlay');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var stage = 4, timer = null, playing = !reduce;
+  var dur = [1200, 2000, 2000, 2400, 3200];
+  function render(){
+    var c = evo.classList;
+    ['s1','s2','s3','s4','c1','c2','c3','c4'].forEach(function(k){ c.remove(k); });
+    for(var i=1;i<=stage;i++) c.add('s'+i);
+    if(stage > 0) c.add('c'+stage);
+    steps.forEach(function(st, i){ st.classList.toggle('active', stage === i+1 || stage === 4); });
+  }
+  function next(){ stage = (stage + 1) % 5; render(); timer = setTimeout(next, dur[stage]); }
+  function play(){ clearTimeout(timer); playing = true; btn.textContent = 'Pause'; timer = setTimeout(next, 1500); }
+  function pause(){ clearTimeout(timer); playing = false; btn.textContent = 'Play'; stage = 4; render(); }
+  btn.addEventListener('click', function(){ playing ? pause() : play(); });
+  render();
+  if(playing){ if(window.IntersectionObserver){ new IntersectionObserver(function(es){ if(es[0].isIntersecting && playing && !timer){ play(); } }).observe(evo); } else { play(); } }
+  else { btn.textContent = 'Play'; }
+})();
+</script>
+</body>
+</html>

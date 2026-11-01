@@ -1,0 +1,51 @@
+name: Deploy site to S3
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", ".github/workflows/deploy.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-site
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: ap-south-1
+      S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      CF_DIST_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Upload 3D assets (long cache)
+        run: |
+          aws s3 sync site/assets "s3://$S3_BUCKET/assets" --delete \
+            --cache-control "public, max-age=604800"
+          aws s3 cp site/assets/sky.hdr "s3://$S3_BUCKET/assets/sky.hdr" \
+            --content-type "application/octet-stream" --cache-control "public, max-age=604800"
+          for f in site/assets/*.glb; do
+            aws s3 cp "$f" "s3://$S3_BUCKET/assets/$(basename "$f")" \
+              --content-type "model/gltf-binary" --cache-control "public, max-age=604800"
+          done
+
+      - name: Upload page (short cache)
+        run: |
+          aws s3 cp site/index.html "s3://$S3_BUCKET/index.html" \
+            --content-type "text/html; charset=utf-8" --cache-control "public, max-age=300"
+
+      - name: Refresh CloudFront
+        if: ${{ env.CF_DIST_ID != '' }}
+        run: aws cloudfront create-invalidation --distribution-id "$CF_DIST_ID" --paths "/*"
