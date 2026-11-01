@@ -3,11 +3,20 @@
   "Statement": [
     {
       "Effect": "Allow",
-      "Principal": { "Federated": "arn:aws:iam::727710162649:oidc-provider/token.actions.githubusercontent.com" },
+      "Principal": {
+        "Federated": "arn:aws:iam::727710162649:oidc-provider/token.actions.githubusercontent.com"
+      },
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
-        "StringEquals": { "token.actions.githubusercontent.com:aud": "sts.amazonaws.com" },
-        "StringLike": { "token.actions.githubusercontent.com:sub": "repo:samya123456/nagarayan-website:*" }
+        "StringEquals": {
+          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+        },
+        "StringLike": {
+          "token.actions.githubusercontent.com:sub": [
+            "repo:samya123456/nagarayan-website:*",
+            "repo:samya123456@69857350/nagarayan-website@1441577137:*"
+          ]
+        }
       }
     }
   ]
