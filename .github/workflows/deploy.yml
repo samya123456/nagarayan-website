@@ -46,6 +46,8 @@ jobs:
         run: |
           aws s3 cp site/index.html "s3://$S3_BUCKET/index.html" \
             --content-type "text/html; charset=utf-8" --cache-control "public, max-age=300"
+          aws s3 cp site/favicon.ico "s3://$S3_BUCKET/favicon.ico" \
+            --content-type "image/x-icon" --cache-control "public, max-age=86400"
 
       - name: Refresh CloudFront
         if: ${{ env.CF_DIST_ID != '' }}
